@@ -1,0 +1,19 @@
+# k8sClusterOnRPi
+
+= Kubernetes cluster on raspberry pi
+
+== Instrukce
+
+Seznámit se s technologiemi Kubernetes, Ansible a Docker.
+Pomocí těchto technologií vytvořit cluster ze čtyřech zařízení raspberry pi a následně na clusteru
+zkusit známé techniky na prolamování hesel, jako jsou rainbow table útoky, dictionary útoky a
+bruteforce útoky. Následné porovnaní výkonu a rychlosti clusteru vůči samotnému zařízení s
+teoretickými výpočty výkonu pomocí Amdahlova zákonu.
+
+Práce by měla zahrnovat:
+. Popis technologií (Kubernetes, Ansible, Docker)
+. Vytvoření a popis sestaveni clusteru
+. Zkouška prolomení hesel
+. Porovnání rychlosti prolomení jedné jednotky vůči clusteru
+. Porovnaní rychlosti clusteru s teoretickým nárústem výkonu vůči Amdahlova zákonu o růstu výkonu
+
