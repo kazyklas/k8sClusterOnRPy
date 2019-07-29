@@ -11,9 +11,9 @@ bruteforce útoky. Následné porovnaní výkonu a rychlosti clusteru vůči sam
 teoretickými výpočty výkonu pomocí Amdahlova zákonu.
 
 Práce by měla zahrnovat:
-. Popis technologií (Kubernetes, Ansible, Docker)
-. Vytvoření a popis sestaveni clusteru
-. Zkouška prolomení hesel
-. Porovnání rychlosti prolomení jedné jednotky vůči clusteru
-. Porovnaní rychlosti clusteru s teoretickým nárústem výkonu vůči Amdahlova zákonu o růstu výkonu
+.Popis technologií (Kubernetes, Ansible, Docker)
+.Vytvoření a popis sestaveni clusteru
+.Zkouška prolomení hesel
+.Porovnání rychlosti prolomení jedné jednotky vůči clusteru
+.Porovnaní rychlosti clusteru s teoretickým nárústem výkonu vůči Amdahlova zákonu o růstu výkonu
 
