@@ -8,7 +8,7 @@ Na tomto vytvořeném clusteru dále bude spuštěno lámání hesel.
 A to takovým způsobem, že master node bude předávat práci workerům. Ty budou následně 
 ve vytvořeném docker containeru crackovat přidělenou práci a vrátí mastru výsledky crackování. 
 O crackování se bude starat software jménem hashcat, který může být optimalizovaný i na grafické karty.
-Budou se crackovat zejména sha1 hashe a to pomocí bruteforce útoky, slovníkové útoky a mask útoky.
+Budou se crackovat zejména sha1 hashe a to pomocí bruteforce útoků, slovníkových útoků a útoků s maskou.
 Výkonost jednotlivých metod na crackování následně bude porovnána a její rychlost analyzována.
 
 == Práce bý měla zahrnovat
