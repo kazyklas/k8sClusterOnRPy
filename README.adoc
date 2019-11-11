@@ -1,19 +1,21 @@
-= Kubernetes cluster on raspberry pi
+= Zadani 
 
-== Instrukce
+Zadáním bakalářské práce je vytvoření výpočetního clusteru, který bude řízen za pomoci kubernetes.
+Jednotlivé nody, které budou specifikovány v daném souboru budou moci být přidány a odebrány dle potřeby.
+Tyto výpočetní nody budou mít nainstalovaný linuxový operační systém a budou zajistěné fakultou. 
+Nody se budou přípravovat pomocí technologií ansible, která usnadní konfiguraci nodů.
+Na tomto vytvořeném clusteru dále bude spuštěno lámání hesel. 
+A to takovým způsobem, že master node bude předávat práci workerům. Ty budou následně 
+ve vytvořeném docker containeru crackovat přidělenou práci a vrátí mastru výsledky crackování. 
+O crackování se bude starat software jménem hashcat, který může být optimalizovaný i na grafické karty.
+Budou se crackovat zejména sha1 hashe a to pomocí bruteforce útoky, slovníkové útoky a mask útoky.
+Výkonost jednotlivých metod na crackování následně bude porovnána a její rychlost analyzována.
 
-Seznámit se s technologiemi Kubernetes, Ansible a Docker.
-Pomocí těchto technologií vytvořit cluster ze čtyř zařízení raspberry pi a následně na clusteru
-zkusit známé techniky na prolamování hesel, jako jsou rainbow table útoky, dictionary útoky a
-bruteforce útoky. Následné porovnaní výkonu a rychlosti clusteru vůči samotnému zařízení a s
-teoretickým nárustem výkonu vypočítaném pomocí Amdahlova zákonu.
+== Práce bý měla zahrnovat
 
-Práce by měla zahrnovat:
-
-. Popis technologií (Kubernetes, Ansible, Docker)
-. Vytvoření a popis sestaveni clusteru
-. Zkouška prolomení hesel
-. Porovnání rychlosti jedné jednotky vůči clusteru
-. Porovnaní rychlosti clusteru s teoretickým nárústem výkonu vůči Amdahlova zákonu
-
+. Popis a analýza použitých technologií ( kubernetes, ansible, docker, hashcat )
+. Vytvoření a popis sestaveného clusteru
+. Popis různých útoků a analýza nejčastěji používaných hesel
+. Spostění softwaru s různými metody útoku ( bruteforce, slovíkový, mask )
+. Analýza výsledku rychlosti crackování
 
