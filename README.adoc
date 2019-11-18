@@ -1,9 +1,9 @@
 = Zadani 
 
-Zadáním bakalářské práce je vytvoření výpočetního clusteru, který bude řízen za pomoci kubernetes.
-Jednotlivé nody, které budou specifikovány v daném souboru budou moci být přidány a odebrány dle potřeby.
+Zadáním bakalářské práce je vytvoření výpočetního clusteru, který bude řízen za pomoci Kubernetes.
+Jednotlivé nody, které budou specifikovány v daném souboru, budou moci být přidány a odebrány dle potřeby.
 Tyto výpočetní nody budou mít nainstalovaný linuxový operační systém a budou zajistěné fakultou. 
-Nody se budou přípravovat pomocí technologií ansible, která usnadní konfiguraci nodů.
+Nody se budou přípravovat pomocí technologií Ansible, která usnadní konfiguraci nodů.
 Na tomto vytvořeném clusteru dále bude spuštěno lámání hesel. 
 A to takovým způsobem, že master node bude předávat práci workerům. Ty budou následně 
 ve vytvořeném docker containeru crackovat přidělenou práci a vrátí mastru výsledky crackování. 
@@ -13,9 +13,9 @@ Výkonost jednotlivých metod na crackování následně bude porovnána a její
 
 == Práce bý měla zahrnovat
 
-. Popis a analýza použitých technologií ( kubernetes, ansible, docker, hashcat )
-. Vytvoření a popis sestaveného clusteru
-. Popis různých útoků a analýza nejčastěji používaných hesel
-. Spostění softwaru s různými metody útoku ( bruteforce, slovíkový, mask )
-. Analýza výsledku rychlosti crackování
+. Popis a analýza použitých technologií (Kubernetes, Ansible, Docker, hashcat).
+. Vytvoření a popis sestaveného clusteru.
+. Popis různých útoků a analýza nejčastěji používaných hesel.
+. Spoustění softwaru s různými metody útoku (bruteforce, slovíkový, mask).
+. Analýza výsledku rychlosti crackování.
 
