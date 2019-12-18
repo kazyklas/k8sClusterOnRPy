@@ -43,3 +43,25 @@ Nanich bude nainstalovaný hashcat, který se postará o samotné lámání.
 == Nástřel řešení
 
 image::BCsolution.jpg[Solution]
+
+
+== Pod a jejich interface
+
+Pody budou potřebovat nějakým způsobem dostávat úkoly k řešení a ty pak řešit.
+Toto budou zajišťovat scripty, které poběží v kontejneru a budou spouštět hashcat s danými parametry.
+Parametry budou zadané preš interface service a ta je následně předzpracuje a rozešle podům.
+Tento interface bude napsaný v Pythonu.
+Něco pobného jako je zde:
+:link: https://github.com/timbo05sec/autocrack[Autocrack]
+
+== Service
+
+Bude zpracovávat požadavky od uživatele.
+Ten je předá pomocí příkazové řádky a konfiguračních souborů.
+Z konfiguračního souboru se nastaví pody a deployne se na ně dle zadaných požadavků.
+V každém podu bude Docker kontejner s příslušnýmy tooly.
+
+== Motivace
+
+Důvod proč jsem si vybral toto téma a proč dělám to co již bylo vytvořeno je zdokonalit si znalosti moderních technologií.
+Zkusit použít Kubernetes na distribuované výpočty.
