@@ -1,4 +1,4 @@
-FROM ubuntu:18.04 
+FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y alien clinfo
 
@@ -26,7 +26,7 @@ ENV HCXDUMPTOOL_VERSION    5.1.4
 
 # Update & install packages for installing hashcat
 RUN apt-get update && \
-    apt-get install -y wget p7zip make build-essential git libcurl4-openssl-dev libssl-dev zlib1g-dev 
+    apt-get install -y wget p7zip make build-essential git libcurl4-openssl-dev libssl-dev zlib1g-dev
 
 RUN mkdir /hashcat
 
