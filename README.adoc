@@ -25,13 +25,13 @@ Výkonost jednotlivých metod na crackování následně bude porovnána a její
 
 Jako příklad podobného řešení mohu najít zde:
 
-:link: https://github.com/psinghal20/distributed-cracker[Go].
+:link: https://github.com/psinghal20/distributed-cracker[Go]
 
 V repozitáři je rešení podobnéhu úkolu ovšem pouze pomoci jazyka go.
 
 Další opensource řešení je hashtopus:
 
-:link: https://github.com/curlyboi/hashtopus[Hastopus].
+:link: https://github.com/curlyboi/hashtopus[Hastopus]
 
 Autor však uvádí, že jeho řešení je již zastaralé a odkazuje na jiné.
 
@@ -41,9 +41,9 @@ Rozdíl mezi touto implmentací je v tom, že mě nebude spravovat queue program
 ale Kubernetes. Moje zdroje budou Docker kontejnery.
 Nanich bude nainstalovaný hashcat, který se postará o samotné lámání.
 
-:link: http://jmmcatee.github.io/cracklord/[CrackLord].
+:link: http://jmmcatee.github.io/cracklord/[CrackLord]
 
-:link: https://github.com/jmmcatee/cracklord[CrackLord-git].
+:link: https://github.com/jmmcatee/cracklord[CrackLord-git]
 
 
 == Nástřel řešení
