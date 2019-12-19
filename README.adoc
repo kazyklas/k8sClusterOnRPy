@@ -35,15 +35,16 @@ CrackLord je řešení, které se nejvicé podobá tomu, co bych chtěl řešit 
 Pomocí fornty servírují vstup od uživatele zdrojům, které mají nakonfigurované nástroje, tak aby je mohli řešit.
 Rozdíl mezi touto implmentací je v tom, že mě nebude spravovat queue program psaný v jazyce GO,
 ale Kubernetes. Moje zdroje budou Docker kontejnery.
-Nanich bude nainstalovaný hashcat, který se postará o samotné lámání.
+Na nich bude nainstalovaný hashcat, který se postará o samotné lámání.
 :link: http://jmmcatee.github.io/cracklord/[CrackLord].
 :link: https://github.com/jmmcatee/cracklord[CrackLord-git].
 
 
-== Nástřel řešení
+== Vzor řešení
 
 Řešení se řídí dle známých container-based distribuovaných systémů, konkrétně Worker queue patternu.
 :link: https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45406.pdf[Design Paterns]
+
 
 image::BCsolution.jpg[Solution]
 
@@ -57,12 +58,18 @@ Tento interface bude napsaný v Pythonu.
 Něco pobného jako je zde:
 :link: https://github.com/timbo05sec/autocrack[Autocrack]
 
+== Zdroje
+
+K tomuto sestavení budu potřebovat alespoň tři zařízení, aby bylo videt, jak by to mohlo byt v praxi. 
+Samozřejmě si vystačím s jedním samotným, kde si vytvořím virtuální počítače.
+Jako OS by na nich běžela nějaká linuxová distribuce, např.: Ubuntu.
+
 == Service
 
-Bude zpracovávat požadavky od uživatele.
-Ten je předá pomocí příkazové řádky a konfiguračních souborů.
+Service bude zažizovat, aby měli pody co počítat, vytvoří frontu, ze které bude následně distribuovat práci.
 Z konfiguračního souboru se nastaví pody a deployne se na ně dle zadaných požadavků.
 V každém podu bude Docker kontejner s příslušnýmy tooly.
+
 
 == Motivace
 
