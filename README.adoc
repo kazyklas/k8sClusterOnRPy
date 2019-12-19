@@ -42,6 +42,9 @@ Nanich bude nainstalovaný hashcat, který se postará o samotné lámání.
 
 == Nástřel řešení
 
+Řešení se řídí dle známých container-based distribuovaných systémů, konkrétně Worker queue patternu.
+:link: https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/45406.pdf[Design Paterns]
+
 image::BCsolution.jpg[Solution]
 
 
@@ -65,3 +68,5 @@ V každém podu bude Docker kontejner s příslušnýmy tooly.
 
 Důvod proč jsem si vybral toto téma a proč dělám to co již bylo vytvořeno je zdokonalit si znalosti moderních technologií.
 Zkusit použít Kubernetes na distribuované výpočty.
+
+
