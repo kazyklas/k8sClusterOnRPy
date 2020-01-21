@@ -1,0 +1,56 @@
+---
+
+# Tasks that needs to be executed on each node.
+
+- hosts: all
+
+  gather_facts: false
+
+  vars_files:
+    - vars/vars.yml
+    - vars/encrypted_vars.yml
+
+  tasks:
+
+    - name: Gather required facts facts
+      setup:
+ 
+    - include: tasks/deploy-example.yml
+    
+    - include: tasks/disable-swap-patition.yml
+
+# Tasks that will be executed just on the master node.
+
+- hosts: master
+
+  gather_facts: false
+
+  vars_files:
+    - vars/vars.yml
+    - vars/encrypted_vars.yml
+
+  tasks:
+
+    - name: Gather required facts facts
+      setup:
+ 
+    - include: tasks/deploy-example.yml
+   
+# Tasks that will be executed on all nodes that are not master.
+
+- hosts: pods 
+
+  gather_facts: false
+
+  vars_files:
+    - vars/vars.yml
+    - vars/encrypted_vars.yml
+
+  tasks:
+
+    - name: Gather required facts facts
+      setup:
+ 
+    - include: tasks/deploy-example.yml
+
+

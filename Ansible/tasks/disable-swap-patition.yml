@@ -1,0 +1,8 @@
+- name: Disabling swap partition for K8s.
+  shell: swapoff -a
+
+- name: Remove fstab entry for swap partition.
+  replace:
+    path: /etc/fstab
+    regexp: '(.*swap)'
+    replace: '#\1'

@@ -1,0 +1,16 @@
+  - name: Initialize and run kubeadm init. 
+    shell: kubeadm init --apiserver-advertise-address {{ advertised_address }} --pod-network-cidr={{ cidr_address }}
+    register: output
+
+  - name: Store the token for future nodejoins.
+    local_action: copy content={{ output.stdout }} dest={{ token_file }}
+
+  - name: Copy and setup directories for K8s configs.
+    shell: |
+     mkdir -p $HOME/.kube
+     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+     sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+  - name: Install flannel network for default DNS. 
+    command: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+

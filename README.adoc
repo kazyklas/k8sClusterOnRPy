@@ -77,3 +77,4 @@ Důvod proč jsem si vybral toto téma a proč dělám to co již bylo vytvořen
 Zkusit použít Kubernetes na distribuované výpočty.
 
 
+

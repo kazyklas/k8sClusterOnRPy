@@ -1,0 +1,42 @@
+- name: Installing required packages
+  apt:
+    name: "{{ packages }}"
+  vars: present
+    packages:
+    - docker.io
+    - kubeadm
+    - kubectl
+
+- name: Starting and Enabling the required services
+  service:
+   name: "{{ item }}"
+   state: started
+   enabled: yes
+  vars:
+    services:
+    - docker
+    - kubelet
+    - firewalld
+
+- name: Allow Network Ports in Firewalld
+  firewalld:
+   port: "{{ ports }}"
+   state: enabled
+   permanent: yes
+   immediate: yes
+  vars:
+    ports:
+    - "6443/tcp"
+    - "10250/tcp"
+
+- name: Enabling Bridge Firewall Rule
+  shell: "echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables"
+
+- name: Remove dependencies that are no longer required
+  apt:
+    autoremove: yes 
+
+- name: Remove useless packages from the cache
+  apt:
+    autoclean: yes 
+

@@ -1,0 +1,39 @@
+= Ansible
+
+Tento adressář je zde pro nasazení a nastartování klastru.
+Ansible je nástroj pro automatické nasazení. 
+Přes ssh se připojí na dané zařízení a vykoná příkazy z modulů.
+
+
+== Usage
+
+----
+ansible-playbook --ask-vault deploy.yml
+----
+
+
+== .ansible.cfg
+
+Pokud chcete aby Ansible koukal nejdrive do adresare odkud spoustite playbook,
+pridejte tyto radky do `~/.ansible.cfg`.
+
+----
+
+[defaults]
+inventory = {{CWD}}/hosts
+retry_files_enabled = False
+
+----
+.
+├── config
+├── deploy.yml
+├── hosts
+├── README.adoc
+├── tasks
+│   └── deploy-example.yml
+└── vars
+    ├── encrypted_vars.yml
+    └── vars.yml
+
+3 directories, 6 files
+== Disabling swap
