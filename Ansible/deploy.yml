@@ -14,8 +14,6 @@
 
     - name: Gather required facts facts
       setup:
- 
-    - include: tasks/deploy-example.yml
     
     - include: tasks/disable-swap-patition.yml
 
@@ -35,9 +33,9 @@
 
     - name: Gather required facts facts
       setup:
- 
-    - include: tasks/deploy-example.yml
-   
+
+    - include: tasks/setup-master-node.yml
+  
 # Tasks that will be executed on all nodes that are not master.
 
 - hosts: pods 
@@ -53,6 +51,6 @@
     - name: Gather required facts facts
       setup:
  
-    - include: tasks/deploy-example.yml
+    - include: tasks/setup-node.yml 
 
 

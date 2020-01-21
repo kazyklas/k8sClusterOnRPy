@@ -33,16 +33,18 @@
     enabled: yes
     state: started
 
-- name: Allow Network Ports in Firewalld
-  firewalld:
-   port: "{{ ports }}"
-   state: enabled
-   permanent: yes
-   immediate: yes
-  vars:
-    ports:
-    - "6443/tcp"
-    - "10250/tcp"
+- name: Allow all access to tcp ports
+  ufw:
+    rule: allow
+    port: '6443'
+    proto: tcp
+
+- name: Allow all access to tcp ports
+  ufw:
+    rule: allow
+    port: '10250'
+    proto: tcp
+    
 
 - name: Enabling Bridge Firewall Rule
   shell: "echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables"

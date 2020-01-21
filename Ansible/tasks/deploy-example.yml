@@ -1,9 +1,0 @@
----
-
-# Check if Python2 is installed
-- name: Check if Python2 is installed in the container
-  raw: dpkg -s python
-  register: python_check_is_installed
-  failed_when: python_check_is_installed.rc not in [0,1]
-  changed_when: false
-
