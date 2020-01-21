@@ -1,22 +1,37 @@
-- name: Installing required packages
-  apt:
-    name: "{{ packages }}"
-  vars: present
-    packages:
-    - docker.io
-    - kubeadm
-    - kubectl
+- name: Add an apt signing key for Kubernetes
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
 
-- name: Starting and Enabling the required services
-  service:
-   name: "{{ item }}"
-   state: started
-   enabled: yes
+- name: Adding apt repository for Kubernetes
+  apt_repository:
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
+    filename: kubernetes.list
+
+- name: Install Kubernetes binaries and docker.
+  apt: 
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
   vars:
-    services:
-    - docker
-    - kubelet
-    - firewalld
+    packages:
+      - kubelet 
+      - kubeadm 
+      - kubectl
+      - docker.io
+
+- name: Enable service docker, and not touch the state
+  service:
+    name: docker
+    enabled: yes
+    state: started
+
+- name: Enable service kubelet, and not touch the state
+  service:
+    name: kubelet 
+    enabled: yes
+    state: started
 
 - name: Allow Network Ports in Firewalld
   firewalld:
