@@ -1,0 +1,37 @@
+- name: Install dependancies for k8s
+  apt: 
+    name: "{{packages}}"
+    state: present
+    autoremove: yes
+  vars:
+    packages:
+    - docker.io
+    - apt-transport-https
+
+- name: Enable docker service
+  systemd:
+    state: started
+    name: docker
+    enabled: yes
+
+- name: add Kubernetes apt-key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+
+- name: add Kubernetes' APT repository
+  apt_repository:
+   repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+   state: present
+   filename: 'kubernetes'
+
+- name: install kubelet
+  apt:
+    name: kubelet=1.14.0-00
+    state: present
+    update_cache: true
+
+- name: install kubeadm
+  apt:
+    name: kubeadm=1.14.0-00
+    state: present

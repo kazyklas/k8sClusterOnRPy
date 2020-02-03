@@ -1,5 +1,8 @@
 [master]
-192.168.122.122 	ansible_user=root
+192.168.122.188 	ansible_user=root
 
 [pods]
-192.168.122.104     ansible_user=root
+192.168.122.170     ansible_user=root
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3

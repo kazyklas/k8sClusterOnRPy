@@ -1,24 +1,26 @@
 = Zadani
 
-Zadáním bakalářské práce je vytvoření výpočetního clusteru, který bude řízen za pomoci Kubernetes.
-Jednotlivé nody, které budou specifikovány v daném souboru, budou moci být přidány a odebrány dle potřeby.
-Tyto výpočetní nody budou mít nainstalovaný linuxový operační systém a budou zajistěné fakultou.
-Nody se budou přípravovat pomocí technologií Ansible, která usnadní konfiguraci nodů.
-Na tomto vytvořeném clusteru dále bude spuštěno lámání hesel.
-A to takovým způsobem, že master node bude předávat práci workerům.
-Ty budou následně ve vytvořeném docker containeru crackovat přidělenou práci a vrátí mastru výsledky crackování.
-O crackování se bude starat software jménem hashcat, který může být optimalizovaný i na grafické karty.
-Budou se crackovat zejména sha1 hashe a to pomocí bruteforce útoků, slovníkových útoků a útoků s maskou.
-Výkonost jednotlivých metod na crackování následně bude porovnána a její rychlost analyzována.
+Cílem práce je vytvoření výpočetního
+klastru pro lámání hesel, který bude řízen za pomoci Kubernetes. Jednotlivé
+uzly budou moci být přidány a odebrány dle potřeby. Uzly se budou připravovat
+pomocí technologie Ansible. Práce na lámání hesel bude nadřízeným uzlem
+přidělována výpočetním uzlům (workerům). Ty budou následně ve vytvořeném Docker
+kontejneru provádět přidělenou práci, a vrátí nadřízenému uzlu výsledky lámání.
+Lámání hesel bude vykonávat software hashcat, který může být optimalizovaný i
+na grafické karty.
+
+
 
 == Práce bý měla zahrnovat
 
-. Popis a analýza použitých technologií (Kubernetes, Ansible, Docker, hashcat).
-. Vytvoření a popis sestaveného clusteru.
-. Popis různých útoků a analýza nejčastěji používaných hesel.
-. Spoustění softwaru s různými metody útoku (bruteforce, slovíkový, mask).
-. Analýza výsledku rychlosti crackování.
 
+Popište použité technologie (Kubernetes,
+Ansible, Docker, hashcat) a prozkoumejte existující řešení problému. Popište
+běžně používané útoky na hesla a formáty ukládání hesel. Vytvořte a popište
+sestavený klastr. Otestujte vytvořené řešení s různými metodami útoku (hrubou
+silou, slovníkový, s maskou). Analyzujte výkonnost jednotlivých metod lámání
+hesel na použitém klastru vzhledem k délce a složitosti hesla a počtu
+výpočetních uzlů.
 
 
 == Podobná řešení

@@ -17,10 +17,13 @@
     
     - include: tasks/disable-swap-patition.yml
 
-    - include: tasks/setup-all-nodes.yml
+    - include: tasks/user-creation.yml
+
+    - include: tasks/install-dependancies.yml
+
 
 # Tasks that will be executed just on the master node.
-
+ 
 - hosts: master
 
   gather_facts: false
@@ -51,6 +54,6 @@
     - name: Gather required facts facts
       setup:
  
-    - include: tasks/setup-node.yml 
+    - include: tasks/join-cluster.yml 
 
 

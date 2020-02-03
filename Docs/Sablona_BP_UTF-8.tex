@@ -103,14 +103,26 @@
 
 \chapter{Hesla}
 
-Hesla můžeme vidět všude a ne jen v informatice. Pokud se podíváme zpět do historie např. do doby velkého Caesara a jeho šifry, ke které je třeba znát číslo, o které se posouvají znaky ve zprávě. Jak tedy můžeme vidět, hesla neslouži pouze k naší autentizaci vůči nějaké službě či serveru. Může je také použít k podepsání citlivých dokumentů jako je třeba příloha e-mailu. Následně pak nemůžeme popřít jeho poslání. Tomuto se říká elektronický podpis. 
+Hesla můžeme vidět všude a ne jen v informatice. 
+Pokud se podíváme zpět do historie např. do doby velkého Caesara a jeho šifry, ke které je třeba znát číslo, o které se posouvají znaky ve zprávě. 
+Jak tedy můžeme vidět, hesla neslouži pouze k naší autentizaci vůči nějaké službě či serveru. 
+Může je také použít k podepsání citlivých dokumentů jako je třeba příloha e-mailu. 
+Následně pak nemůžeme popřít jeho poslání. Tomuto se říká elektronický podpis. 
 
 Hesla však mají nejednu nevýhodu. Útočník může s naším nebo i bez našeho vědění odhalit naše heslo a tím nám narušit naše soukromý. Hesla mohou také být v systémech, které používáme uložena nepatřičným způsobem, jako je například čistý text bez použití žádných ochranných prostředků. 
 
 Hesla též mohou ze systému uniknout. V tomto případě, pokud byla hesla uložena neptřičným způsobem nemusí se potencionální útočník nějak přemáhat, aby uživatele kompromitoval. Proto se zaměříme na to jak mohou a jak skutečně jsou uložena v nejpoužívanějších systémech. 
 
+\section{Hašovací funkce}
 
-\section{Formáty ukládání}
+Jsou to takové funkce f: X ® Y, pro něž je snadné z jakékoli hodnoty x Î X vypočítat y = f(x), ale pro náhodně vybraný obraz y Î f(X) nelze v relevatním čase najít její vzor x Î X tak, aby y = f(x).Přitom víme, že takový vzor existuje nebo jich existuje dokonce velmi mnoho. To kolik jich existuje se odvíjí jakou hašovací funkci použijeme. K těmto funkcím se váží pojmy, bez kterých bychom se v této práci neobešli a proto si je zadefinujeme.
+
+\subsection{Narozeninový paradox}
+
+\subsection{Známé hašovací funkce}
+
+
+\section{Formáty ukládání v operačních systémech}
 
 \subsection{Windows}
 
@@ -118,6 +130,18 @@ Windows se chovají jinak v doméně a jinak mimo ní. Pokud je počítač v dom
 Pokud počítač není nastaven aby se autentikoval pomocí protokolu Kerberos používají Windows šifrování NTLM.
 
 \subsection{Linux}
+
+Hesla v linuxových systémech se skládají ze dvou konkretních souborů. 
+
+/etc/shadow - obsah a strukturu toho souboru můžeme vidět na následujícím obrázku. 
+
+% TODO Pictore of the structure  
+
+/etc/passwd - obsah a strukturu tohoto souboru můžeme vidět na následujícím obrázku.
+
+% TODO Pictore of the structure 
+
+V /etc/shadow jsou hesla uložená pomocí hashe. 
 
 \section{Útoky na hesla}
 

@@ -1,0 +1,19 @@
+- name: Create non root user ubuntu
+  user: 
+    name: ubuntu 
+    append: yes 
+    state: present 
+    createhome: yes 
+    shell: /bin/bash
+
+- name: Allow user to do sudo commands without password
+  lineinfile:
+    dest: /etc/sudoers
+    line: 'ubuntu ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+
+- name: set up authorized keys for the ubuntu user
+  authorized_key: 
+    user: ubuntu 
+    state: present 
+    key: https://github.com/kazyklas.keys
