@@ -88,29 +88,33 @@ Jeho hlavními cíly jsou jednoduchost a nenáročnost. Kód by měl být čitel
 
 Ansible se připojí na vzdálený počítač pomocí OpenSSH pomocí uživatele, který je současně přihlášen. Na spravovaném počítači není trřeba žádný agent. Je možnost nakonfigurovat Ansible, aby pro připojení nepoužíval OpenSSH, ale i kerberos nebo LDAP. 
 
-\subsection{Control node}
+\subsection{Komponenty}
+
+\subsubsection{Control node}
 
 Jakýkoliv počítač s nainstalovaným Ansible a pythonem, může spouštět příkazy nebo tzv. playbooky. Tento počítač se nazývá control node. Takových můžeme mít klidně více, ne však počítače, které mají nainstalovaný operační systém Windows. 
 
-\subsection{Managed node}
+\subsubsection{Managed node}
 
 Je jakékoliv síťové zařízení. Managed nodes můžeme také nayývat jako hosts. Tyto zařízení nemusejí mít nainstalovaný Ansible, ale musejí mít nainstalovaný python. Ansible může být nakofigurován, aby používal specifikovanou verzi pythonu, pokud není specifikována, spustí se na hostu jeho defaultní.
 
-\subsection{Iventory}
+\subsubsection{Iventory}
 
 Je seznam všech nastavovaných zařízení. Často se nazývá hostfile. v tomto souboru nastavujeme skupiny zařízení, jejich IP adresy a další specifikace, například jaký python má daný host použít. 
 
-\subsection{Modules}
+\subsubsection{Modules}
 
 Jsou to jednotlivé části kódu, které bude Ansible spouštět. Každý modul má speciální použití. Vše od správy uživatelů ( user ) přes nastavení systému ( systemd ) až k instalovaní balíčků ( apt, yum ). Můžeme spustit jeden modul v tasku, nebo více v playbooku. Pro přehlednost neuvádím všechnz možné moduly, jelikož je jich přes tři tisíce. 
 
-\subsection{Tasks}
+\subsubsection{Tasks}
 
 Jsou jednotky, které se museji provést. Nejčasteji specifikované v deployment souboru. 
 
-\subsection{Playbooks}
+\subsubsection{Playbooks}
 
 Je seřazený seznam tasků, které se musí vykonat. Ničemu neuškodí pokud se plazbook spustí znovu, protože Asnible skontroluje stav daného tasku. Playbooky jsou psané podle konvenci YAMLu. 
+
+
 
 \section{Docker}
 
@@ -122,17 +126,47 @@ Fylosofie kontejnerů je taková, že každý kontejner je odpovědný pouze za 
 
 Konterjnery fungují tedy jako malé počítače, mají izolované veškeré svoje systémové zdroje ( paměť, procesy, internetové rozhraní ). Díky tomuto mohou být rychle a jednoduše přidány, nebo odebrány.  
 
+\subsection{Stavební kameny Dockeru}
+
+Docker je napsaný v jazyce Go a využívá vychytávky linuxového kernelu pro svojí funkcionalitu. Díky tomuto Docker perfektně funguje na počítačích, kde běží OS založený na Linuxu. Jiné operační systémy jako je například Windows se s tímto úkolem vypořádávají složitěji. Vytváří virtuální prostředí ve kterém běží Linux a teprve v tomto prostředí mohou Docker spustit.
+
+\subsubsection{Jmenné prostory}
+
+\subsubsection{Kontrolní skupina}
+
+\subsubsection{Sjednocující souborové systémy}
+
 \subsection{Konterjner vs. virtuální počítač}
 
+\subsection{Komponenty}
 
+\subsubsection{Docker daemon}
 
-\subsection{Můj Docker image}
+Docker daemon nebo-li dockerd poslouchá dotazy na docker API a spravuje objekty jakou jsou docker obrazy, kontejnery, síť a úložiště. Komunikuje ale i s dalšími daemony, aby byl schopen řídit službu Docker.
+
+\subsubsection{Docker klient}
+
+Je to primární cesta, jak komunikovat s Dockerem. Když použijeme příkazy, jako jsou "docker run", klient odešle příkazy daemono zmíněného výše. 
+
+\subsubsection{Docker registr}
+
+Docker registr je úložiště pro naše Docker obrazy. Bez předchozího nastavení hledá dockerd obrazy, které chceme spustit ve veřejném Docker registru. Obrazy však mohou být dostupné i lokálně, nebo na nějaké jiné službě, např.: gitlab container registry. 
+
+Do styku s registrem přícházíme hlavně ve chvílích, kdy provádíme příkazý docker pull, docker push a docker run. Tyto příkazy vždy potřebují znát obraz, který bude spouštěn jako základní vrstva pro nový kontejner, nebo bude stáhnut na lokání počítač, či nasdílen do registru.
+
+\subsubsection{Obrazy}
+
+Můžeme si to představit jako šablonu, na které je spuštěn kontejner. Obraz může být složen z vícero obrazů, nebo z nich vycházet. 
+
+Pro vytvoření obrazu je třeba soubor Dockerfile. Tento soubor obsahuje jednoduché kroky, které je třeba vykonat pro vytvoření konkrétního obrazu. Např.: jaké použijeme a zveřejníme porty, jaké balíčky chceme ve vytvořeném obrazu mít atd. 
+
+Každý příkaz v Dockerfilu vytvoří na locálním počítači tzv. vrstvu, kterou při úpravě Dockerfilu mění nebo předělává pouze pokud byla změněna. 
+
 
 
 \section{Hashcat}
 
 \subsection{Proč použít Hashcat?}
-
 
 \chapter{Hesla}
 
@@ -181,14 +215,14 @@ V /etc/shadow jsou hesla uložená pomocí hashe.
 
 \section{Ochrana před různými útoky}
 
-
 \chapter{Realizace}
 
 \section{Nasazení}
 
 \section{Spuštění s různými metodami útoku}
 
-\section{Analýza rychlosti}
+\chapter{Analýza rychlosti}
+
 
 \begin{Závěr}
 	%sem napište závěr Vaší práce
