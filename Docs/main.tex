@@ -13,8 +13,7 @@
 \documentclass[thesis=B,czech]{FITthesis}[2019/12/23]
 
 \usepackage[utf8]{inputenc} % LaTeX source encoded as UTF-8
-\usepackage[czech]{babel}
-\usepackage[utf8]{inputenc}
+
 \usepackage[T1]{fontenc}
 
 % \usepackage{amsmath} %advanced maths
@@ -132,9 +131,38 @@ Docker je napsaný v jazyce Go a využívá vychytávky linuxového kernelu pro 
 
 \subsubsection{Jmenné prostory}
 
+Pro izolaci používá Docker tzv. jmenné prostory. Každý kontejner při spuštění vytvoří tyto jmenné prostory a tak oddělí jednotlivá prostředí. Pro oddělení používá následující jmenné prostory.
+
+\begin{table}[h!]
+  \begin{center}
+    \caption{Jmenné prostory Dockeru.}
+    \label{tab:table1}
+    \begin{tabular}{l|c} 
+      \textbf{Jméno} & \textbf{Popis} \\
+      \hline
+      pid & odděluje procesy (PID = Process ID)\\
+      net & spravuje síťové rozhraní\\
+      ipc & spravuje přístup k IPC zdrojům (IPC 'InterProcess Communication)\\
+      mnt & spravuje souborové systémy\\
+      uts & izoluje kernel a verze identifikátorů\\
+    \end{tabular}
+  \end{center}
+\end{table}
+
 \subsubsection{Kontrolní skupina}
 
+Tyto skupiny limitují zdroje pro daný kontejner. Dovolují sdílet prostředky mezi hostitelským systémem a dalšímy kontejnery. Potencionálně je mohou omezovat například na množství paměti, které může daný kontejner použít při svém běhu.  
+
 \subsubsection{Sjednocující souborové systémy}
+
+Sjednocující souborový systém kombinuje jmenné prostory dvou či více souborových systémů a vytváří tak jediný spojený jmenný prostor. Docker využívá vlastností takových souborových systémů pro vytváření bloků pro kontejnery. Docker efektivně pravue s následujícímy souborovými systémy: 
+
+\begin{itemize}
+    \item AUFS
+    \item btrfs
+    \item vfs
+    \item DeviceMapper
+\end{itemize}
 
 \subsection{Konterjner vs. virtuální počítač}
 
@@ -162,7 +190,7 @@ Pro vytvoření obrazu je třeba soubor Dockerfile. Tento soubor obsahuje jednod
 
 Každý příkaz v Dockerfilu vytvoří na locálním počítači tzv. vrstvu, kterou při úpravě Dockerfilu mění nebo předělává pouze pokud byla změněna. 
 
-
+%TODO picture of docker architecture
 
 \section{Hashcat}
 
@@ -180,15 +208,26 @@ Hesla však mají nejednu nevýhodu. Útočník může s naším nebo i bez naš
 
 Hesla též mohou ze systému uniknout. V tomto případě, pokud byla hesla uložena neptřičným způsobem nemusí se potencionální útočník nějak přemáhat, aby uživatele kompromitoval. Proto se zaměříme na to jak mohou a jak skutečně jsou uložena v nejpoužívanějších systémech. 
 
-\subsection{Hašovací funkce}
+\section{Hašovací funkce}
 
 Jsou to takové funkce f: X ® Y, pro něž je snadné z jakékoli hodnoty x Î X vypočítat y = f(x), ale pro náhodně vybraný obraz y Î f(X) nelze v relevatním čase najít její vzor x Î X tak, aby y = f(x).
 
 Přitom víme, že takový vzor existuje nebo jich existuje dokonce velmi mnoho. To kolik jich existuje se odvíjí jakou hašovací funkci použijeme.
 
-K těmto funkcím se váží pojmy, bez kterých bychom se v této práci neobešli a proto si je zadefinujeme.
+\subsection{Vlastnosti hašovací funkce}
 
+Abychom mohli funkci považovat za hašovací, musí mít následující vlastnosti:
 
+\begin{itemize}
+    \item jakékoliv množství vstupních dat poskytuje stejně dlouhý výstup (otisk),
+    \item malou změnou vstupních dat dosáhneme velké změny na výstupu,
+    \item z hashe je prakticky nemožné rekonstruovat původní text zprávy,
+    \item v praxi je vysoce nepravděpodobné, že dvěma různým zprávám odpovídá stejný hash, jinými slovy pomocí hashe lze v praxi identifikovat právě jednu zprávu (ověřit její správnost).
+\end{itemize}
+
+%TODO narozeninovy paradox a projit si prezentace na bezpecnost o hashich
+
+\subsection{Naorzeninový paradox}
 
 \section{Formáty ukládání}
 
@@ -213,6 +252,8 @@ V /etc/shadow jsou hesla uložená pomocí hashe.
 
 \section{Útoky na hesla}
 
+\section{Entropie hesla}
+
 \section{Ochrana před různými útoky}
 
 \chapter{Realizace}
@@ -224,9 +265,9 @@ V /etc/shadow jsou hesla uložená pomocí hashe.
 \chapter{Analýza rychlosti}
 
 
-\begin{Závěr}
+\section{Závěr}
 	%sem napište závěr Vaší práce
-\end{Závěr}
+
 
 \bibliographystyle{csn690}
 \bibliography{mybibliographyfile}
