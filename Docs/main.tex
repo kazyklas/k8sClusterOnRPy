@@ -73,128 +73,13 @@
 
 \chapter{Cíl práce}
 
-
 \chapter{Popis použitých technologií}
 
-\section{Kubernetes}
+\input{kubernetes}
 
+\input{ansible}
 
-\section{Ansible}
-
-Ansible je automatizační nástroj pro konfiguraci systému, nasazení softwaru, aktualizac. Jeho nejsilnější stránka je nulové výpadky systému při aktualizaci balíčků, nebo automatické nastavovat dané zařízení. 
-
-Jeho hlavními cíly jsou jednoduchost a nenáročnost. Kód by měl být čitelný i pro lidi, kteří nejsou obeznámeni s programem. Je schopen pokrýt různě velké prostředí od malých podniků až po velice obsáhlou infrastrukturu. 
-
-Ansible se připojí na vzdálený počítač pomocí OpenSSH pomocí uživatele, který je současně přihlášen. Na spravovaném počítači není trřeba žádný agent. Je možnost nakonfigurovat Ansible, aby pro připojení nepoužíval OpenSSH, ale i kerberos nebo LDAP. 
-
-\subsection{Komponenty}
-
-\subsubsection{Control node}
-
-Jakýkoliv počítač s nainstalovaným Ansible a pythonem, může spouštět příkazy nebo tzv. playbooky. Tento počítač se nazývá control node. Takových můžeme mít klidně více, ne však počítače, které mají nainstalovaný operační systém Windows. 
-
-\subsubsection{Managed node}
-
-Je jakékoliv síťové zařízení. Managed nodes můžeme také nayývat jako hosts. Tyto zařízení nemusejí mít nainstalovaný Ansible, ale musejí mít nainstalovaný python. Ansible může být nakofigurován, aby používal specifikovanou verzi pythonu, pokud není specifikována, spustí se na hostu jeho defaultní.
-
-\subsubsection{Iventory}
-
-Je seznam všech nastavovaných zařízení. Často se nazývá hostfile. v tomto souboru nastavujeme skupiny zařízení, jejich IP adresy a další specifikace, například jaký python má daný host použít. 
-
-\subsubsection{Modules}
-
-Jsou to jednotlivé části kódu, které bude Ansible spouštět. Každý modul má speciální použití. Vše od správy uživatelů ( user ) přes nastavení systému ( systemd ) až k instalovaní balíčků ( apt, yum ). Můžeme spustit jeden modul v tasku, nebo více v playbooku. Pro přehlednost neuvádím všechnz možné moduly, jelikož je jich přes tři tisíce. 
-
-\subsubsection{Tasks}
-
-Jsou jednotky, které se museji provést. Nejčasteji specifikované v deployment souboru. 
-
-\subsubsection{Playbooks}
-
-Je seřazený seznam tasků, které se musí vykonat. Ničemu neuškodí pokud se plazbook spustí znovu, protože Asnible skontroluje stav daného tasku. Playbooky jsou psané podle konvenci YAMLu. 
-
-
-
-\section{Docker}
-
-Docker je otevřená platforma pro vývoj, dodání a spouštění aplikací. Umožnuje oddělení aplikací od infrastruktury, tedy můžeme dodávat software rychleji a bez problémů, které se váží k různorodosti prostředí, ve kterém aplikace běží. Svou fylozofií jsou velice podobné virtualním počítačům. Rozdíly mezi těmito různými pohledy na věc budou rozebrány dále v textu. 
-
-Docker zprostředkovává platformu pro zabalení aplikace i se všemi jejímy závislostmi. Izoluje danou aplikaci od ostatních běžících procesů na daném počítači a zajišťuje tak její bezpečí. Docker kontejner je velice nenáročný na hardware, můžeme jich tedy na daném počítači spustit velice mnoho.  
-
-Fylosofie kontejnerů je taková, že každý kontejner je odpovědný pouze za jednu danou část aplikace. Pro příklad máme naší webovou aplikaci. Budeme tedy mít alespoň tři docker kontejnery. Jeden na kterém poběží NGINX a bude zprostředkovávat naší aplikaci uživatelům. Další bude mít naší aplikaci a ve třetím poběží databáze. 
-
-Konterjnery fungují tedy jako malé počítače, mají izolované veškeré svoje systémové zdroje ( paměť, procesy, internetové rozhraní ). Díky tomuto mohou být rychle a jednoduše přidány, nebo odebrány.  
-
-
-\subsection{Konterjner vs. virtuální počítač}
-
-\subsection{Stavební kameny Dockeru}
-
-Docker je napsaný v jazyce Go a využívá vychytávky linuxového kernelu pro svojí funkcionalitu. Díky tomuto Docker perfektně funguje na počítačích, kde běží OS založený na Linuxu. Jiné operační systémy jako je například Windows se s tímto úkolem vypořádávají složitěji. Vytváří virtuální prostředí ve kterém běží Linux a teprve v tomto prostředí mohou Docker spustit.
-
-\subsubsection{Jmenné prostory}
-
-Jmenné prostory zastřešují veškeré zdroje systému tak, že každý proces spuštěn v daném prostoru může používat pouze prostředky, které se váží k tomuto prostoru. Každému procesu se to jeví tak, že má svoje vlastní globální prostředky, které mohou vidět i ostatní procesy z jmenného prostoru, ale ne z jiného. Níže je možné vidět jmenné prostory, které je možné v Linuxu nalézt.
-
-\begin{table}[h!]
-  \begin{center}
-    \caption{Linuxové jmenné prostory}
-    \label{tab:table1}
-    \begin{tabular}{l|l} 
-      \textbf{Jméno} & \textbf{Popis} \\
-      \hline
-
-	  Cgroup  &  Cgroup root adresář\\
-	  IPC     &  System pro komunikaci procesů, POSIX fronty\\
-	  Network &  Síťové rozhraní, protocoly, porty, etc\\
-      Mount   &  Připojená zařízení\\
-      PID     &  ID procesů\\
-      User    &  Uživatelská ID a ID skupin\\
-      UTS     &  Hostname a NIS doménu\\   
-      
-    \end{tabular}
-  \end{center}
-\end{table}
-
-Při spuštění kontejneru dojde k vytvoření procesu na hostitelském systému. Procesy dostanou od systému nějaké PID a chovají se jako normální procesy. Pokud se však přihlásíme do kontejneru (command: docker exec -it name bash) a podíváme se na procesy běžící v daném kontejneru uvidíme, že procesy mají jiná PID a určitě mají i PID=1. Toto nám umožňují jmenné prostory.
-
-Každý kontejner může mít svůj vlastní souborový systém a svoje síťové rozhraní. Vše co můžeme oddělit mezi hostitelem a kontejnery je uvedeno v tabulce výše. 
-
-\subsubsection{Kontrolní skupina}
-
-Je to vlastnost Linuxového kernelu. Jejich hlavní funkcí je limitovat zdroje. V Dockeru se používají protože dovolují sdílet prostředky mezi hostitelským systémem a dalšímy kontejnery. 
-
-Často dochází k záměně pojmů mezi kontrolními skupinami a jmennými prostory. Znovu to tedy shrňme. Kontrolní skupinz, nebo-li cgroups omezují co můžeme použít a jemenné prostorz nebo-li namespaces omezují co jsme schopni vidět v systému. 
-
-\subsubsection{ě}
-
-
-
-\subsection{Komponenty}
-
-\subsubsection{Docker daemon}
-
-Docker daemon nebo-li dockerd poslouchá dotazy na docker API a spravuje objekty jakou jsou docker obrazy, kontejnery, síť a úložiště. Komunikuje ale i s dalšími daemony, aby byl schopen řídit službu Docker.
-
-\subsubsection{Docker klient}
-
-Je to primární cesta, jak komunikovat s Dockerem. Když použijeme příkazy, jako jsou "docker run", klient odešle příkazy daemono zmíněného výše. 
-
-\subsubsection{Docker registr}
-
-Docker registr je úložiště pro naše Docker obrazy. Bez předchozího nastavení hledá dockerd obrazy, které chceme spustit ve veřejném Docker registru. Obrazy však mohou být dostupné i lokálně, nebo na nějaké jiné službě, např.: gitlab container registry. 
-
-Do styku s registrem přícházíme hlavně ve chvílích, kdy provádíme příkazý docker pull, docker push a docker run. Tyto příkazy vždy potřebují znát obraz, který bude spouštěn jako základní vrstva pro nový kontejner, nebo bude stáhnut na lokání počítač, či nasdílen do registru.
-
-\subsubsection{Obrazy}
-
-Můžeme si to představit jako šablonu, na které je spuštěn kontejner. Obraz může být složen z vícero obrazů, nebo z nich vycházet. 
-
-Pro vytvoření obrazu je třeba soubor Dockerfile. Tento soubor obsahuje jednoduché kroky, které je třeba vykonat pro vytvoření konkrétního obrazu. Např.: jaké použijeme a zveřejníme porty, jaké balíčky chceme ve vytvořeném obrazu mít atd. 
-
-Každý příkaz v Dockerfilu vytvoří na locálním počítači tzv. vrstvu, kterou při úpravě Dockerfilu mění nebo předělává pouze pokud byla změněna. 
-
-%TODO picture of docker architecture
+\input{docker}
 
 \section{Hashcat}
 
@@ -283,8 +168,6 @@ V /etc/shadow jsou hesla uložená pomocí hashe.
 \section{Pomocí masky}
 
 \section{Se slovníkem}
-
-\chapter{Test}
 
 \chapter{Závěr}
 \cite{merkel2014docker}
