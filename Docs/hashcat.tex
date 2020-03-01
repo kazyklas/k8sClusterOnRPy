@@ -1,0 +1,36 @@
+
+\subsection{Proč použít Hashcat?}
+
+\chapter{Hesla}
+
+Hesla můžeme vidět všude a ne jen v informatice. 
+Pokud se podíváme zpět do historie např. do doby velkého Caesara a jeho šifry, ke které je třeba znát číslo, o které se posouvají znaky ve zprávě. 
+Jak tedy můžeme vidět, hesla neslouži pouze k naší autentizaci vůči nějaké službě či serveru. 
+Může je také použít k podepsání citlivých dokumentů jako je třeba příloha e-mailu. 
+Následně pak nemůžeme popřít jeho poslání. Tomuto se říká elektronický podpis. 
+
+Hesla však mají nejednu nevýhodu. Útočník může s naším nebo i bez našeho vědění odhalit naše heslo a tím nám narušit naše soukromý. Hesla mohou také být v systémech, které používáme uložena nepatřičným způsobem, jako je například čistý text bez použití žádných ochranných prostředků. 
+
+Hesla též mohou ze systému uniknout. V tomto případě, pokud byla hesla uložena neptřičným způsobem nemusí se potencionální útočník nějak přemáhat, aby uživatele kompromitoval. Proto se zaměříme na to jak mohou a jak skutečně jsou uložena v nejpoužívanějších systémech. 
+
+\section{Hašovací funkce}
+
+Jsou to takové funkce f: X ® Y, pro něž je snadné z jakékoli hodnoty x Î X vypočítat y = f(x), ale pro náhodně vybraný obraz y Î f(X) nelze v relevatním čase najít její vzor x Î X tak, aby y = f(x).
+
+Přitom víme, že takový vzor existuje nebo jich existuje dokonce velmi mnoho. To kolik jich existuje se odvíjí jakou hašovací funkci použijeme.
+
+\subsection{Vlastnosti hašovací funkce}
+
+Abychom mohli funkci považovat za hašovací, musí mít následující vlastnosti:
+
+\begin{itemize}
+    \item jakékoliv množství vstupních dat poskytuje stejně dlouhý výstup (otisk),
+    \item malou změnou vstupních dat dosáhneme velké změny na výstupu,
+    \item z hashe je prakticky nemožné rekonstruovat původní text zprávy,
+    \item v praxi je vysoce nepravděpodobné, že dvěma různým zprávám odpovídá stejný hash, jinými slovy pomocí hashe lze v praxi identifikovat právě jednu zprávu (ověřit její správnost).
+\end{itemize}
+
+%TODO narozeninovy paradox a projit si prezentace na bezpecnost o hashich
+
+\subsection{Naorzeninový paradox}
+

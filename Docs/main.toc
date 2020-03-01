@@ -6,52 +6,54 @@
 \babel@toc {english}{}
 \babel@toc {czech}{}
 \contentsline {chapter}{{\' U}vod}{1}{chapter*.5}% 
-\contentsline {chapter}{\chapternumberline {1}C\IeC {\'\i }l pr\IeC {\'a}ce}{3}{chapter.1}% 
-\contentsline {chapter}{\chapternumberline {2}Popis pou\IeC {\v z}it\IeC {\'y}ch technologi\IeC {\'\i }}{5}{chapter.2}% 
-\contentsline {section}{\numberline {2.1}Kubernetes}{5}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}Ansible}{5}{section.2.2}% 
-\contentsline {subsection}{\numberline {2.2.1}Komponenty}{5}{subsection.2.2.1}% 
-\contentsline {subsubsection}{\numberline {2.2.1.1}Control node}{5}{subsubsection.2.2.1.1}% 
-\contentsline {subsubsection}{\numberline {2.2.1.2}Managed node}{5}{subsubsection.2.2.1.2}% 
-\contentsline {subsubsection}{\numberline {2.2.1.3}Iventory}{6}{subsubsection.2.2.1.3}% 
-\contentsline {subsubsection}{\numberline {2.2.1.4}Modules}{6}{subsubsection.2.2.1.4}% 
-\contentsline {subsubsection}{\numberline {2.2.1.5}Tasks}{6}{subsubsection.2.2.1.5}% 
-\contentsline {subsubsection}{\numberline {2.2.1.6}Playbooks}{6}{subsubsection.2.2.1.6}% 
-\contentsline {section}{\numberline {2.3}Docker}{6}{section.2.3}% 
-\contentsline {subsection}{\numberline {2.3.1}Konterjner vs. virtu\IeC {\'a}ln\IeC {\'\i } po\IeC {\v c}\IeC {\'\i }ta\IeC {\v c}}{7}{subsection.2.3.1}% 
-\contentsline {subsection}{\numberline {2.3.2}Stavebn\IeC {\'\i } kameny Dockeru}{7}{subsection.2.3.2}% 
-\contentsline {subsubsection}{\numberline {2.3.2.1}Jmenn\IeC {\'e} prostory}{7}{subsubsection.2.3.2.1}% 
-\contentsline {subsubsection}{\numberline {2.3.2.2}Kontroln\IeC {\'\i } skupina}{7}{subsubsection.2.3.2.2}% 
-\contentsline {subsubsection}{\numberline {2.3.2.3}\IeC {\v e}}{8}{subsubsection.2.3.2.3}% 
-\contentsline {subsection}{\numberline {2.3.3}Komponenty}{8}{subsection.2.3.3}% 
-\contentsline {subsubsection}{\numberline {2.3.3.1}Docker daemon}{8}{subsubsection.2.3.3.1}% 
-\contentsline {subsubsection}{\numberline {2.3.3.2}Docker klient}{8}{subsubsection.2.3.3.2}% 
-\contentsline {subsubsection}{\numberline {2.3.3.3}Docker registr}{8}{subsubsection.2.3.3.3}% 
-\contentsline {subsubsection}{\numberline {2.3.3.4}Obrazy}{8}{subsubsection.2.3.3.4}% 
-\contentsline {section}{\numberline {2.4}Hashcat}{8}{section.2.4}% 
-\contentsline {subsection}{\numberline {2.4.1}Pro\IeC {\v c} pou\IeC {\v z}\IeC {\'\i }t Hashcat?}{8}{subsection.2.4.1}% 
-\contentsline {chapter}{\chapternumberline {3}Hesla}{9}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Ha\IeC {\v s}ovac\IeC {\'\i } funkce}{9}{section.3.1}% 
-\contentsline {subsection}{\numberline {3.1.1}Vlastnosti ha\IeC {\v s}ovac\IeC {\'\i } funkce}{9}{subsection.3.1.1}% 
-\contentsline {subsection}{\numberline {3.1.2}Naorzeninov\IeC {\'y} paradox}{10}{subsection.3.1.2}% 
-\contentsline {section}{\numberline {3.2}Form\IeC {\'a}ty ukl\IeC {\'a}d\IeC {\'a}n\IeC {\'\i }}{10}{section.3.2}% 
-\contentsline {subsection}{\numberline {3.2.1}Windows}{10}{subsection.3.2.1}% 
-\contentsline {subsection}{\numberline {3.2.2}Linux}{10}{subsection.3.2.2}% 
-\contentsline {subsection}{\numberline {3.2.3}MacOS}{10}{subsection.3.2.3}% 
-\contentsline {section}{\numberline {3.3}\IeC {\'U}toky na hesla}{10}{section.3.3}% 
-\contentsline {subsection}{\numberline {3.3.1}Hrubou silou}{10}{subsection.3.3.1}% 
-\contentsline {subsection}{\numberline {3.3.2}Pomoc\IeC {\'\i } masky}{10}{subsection.3.3.2}% 
-\contentsline {subsection}{\numberline {3.3.3}Se slovn\IeC {\'\i }kem}{10}{subsection.3.3.3}% 
-\contentsline {section}{\numberline {3.4}Entropie hesla}{10}{section.3.4}% 
-\contentsline {section}{\numberline {3.5}Ochrana p\IeC {\v r}ed r\IeC {\r u}zn\IeC {\'y}mi \IeC {\'u}toky}{10}{section.3.5}% 
-\contentsline {chapter}{\chapternumberline {4}Realizace}{11}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}Nasazen\IeC {\'\i }}{11}{section.4.1}% 
-\contentsline {section}{\numberline {4.2}Spu\IeC {\v s}t\IeC {\v e}n\IeC {\'\i } s r\IeC {\r u}zn\IeC {\'y}mi metodami \IeC {\'u}toku}{11}{section.4.2}% 
-\contentsline {chapter}{\chapternumberline {5}Anal\IeC {\'y}za rychlosti}{13}{chapter.5}% 
-\contentsline {section}{\numberline {5.1}Hrubou silou}{13}{section.5.1}% 
-\contentsline {section}{\numberline {5.2}Pomoc\IeC {\'\i } masky}{13}{section.5.2}% 
-\contentsline {section}{\numberline {5.3}Se slovn\IeC {\'\i }kem}{13}{section.5.3}% 
-\contentsline {chapter}{\chapternumberline {6}Z\IeC {\'a}v\IeC {\v e}r}{15}{chapter.6}% 
-\contentsline {chapter}{Literatura}{17}{chapter*.6}% 
-\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{19}{appendix.A}% 
-\contentsline {appendix}{\chapternumberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{21}{appendix.B}% 
+\contentsline {chapter}{\chapternumberline {1}Cíl práce}{3}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Kubernetes}{3}{section.1.1}% 
+\contentsline {subsection}{\numberline {1.1.1}Stavební kameny Kubernetes}{3}{subsection.1.1.1}% 
+\contentsline {subsubsection}{\numberline {1.1.1.1}Master}{4}{subsubsection.1.1.1.1}% 
+\contentsline {subsubsection}{\numberline {1.1.1.2}Pod}{4}{subsubsection.1.1.1.2}% 
+\contentsline {subsubsection}{\numberline {1.1.1.3}Plánovač}{4}{subsubsection.1.1.1.3}% 
+\contentsline {subsubsection}{\numberline {1.1.1.4}Controller Manager}{4}{subsubsection.1.1.1.4}% 
+\contentsline {subsubsection}{\numberline {1.1.1.5}API server}{4}{subsubsection.1.1.1.5}% 
+\contentsline {subsubsection}{\numberline {1.1.1.6}Kubelet}{4}{subsubsection.1.1.1.6}% 
+\contentsline {subsubsection}{\numberline {1.1.1.7}Kube-Proxy}{4}{subsubsection.1.1.1.7}% 
+\contentsline {subsection}{\numberline {1.1.2}Kubernetes a tajemství}{4}{subsection.1.1.2}% 
+\contentsline {subsection}{\numberline {1.1.3}Aktualizace kontejnerů}{4}{subsection.1.1.3}% 
+\contentsline {subsection}{\numberline {1.1.4}Sdílené datové prostory}{4}{subsection.1.1.4}% 
+\contentsline {subsection}{\numberline {1.1.5}Cloudový poskytovatelé}{4}{subsection.1.1.5}% 
+\contentsline {subsection}{\numberline {1.1.6}Flannel}{4}{subsection.1.1.6}% 
+\contentsline {subsection}{\numberline {1.1.7}•}{4}{subsection.1.1.7}% 
+\contentsline {section}{\numberline {1.2}Ansible}{4}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}Komponenty}{4}{subsection.1.2.1}% 
+\contentsline {subsubsection}{\numberline {1.2.1.1}Control node}{4}{subsubsection.1.2.1.1}% 
+\contentsline {subsubsection}{\numberline {1.2.1.2}Managed node}{5}{subsubsection.1.2.1.2}% 
+\contentsline {subsubsection}{\numberline {1.2.1.3}Iventory}{5}{subsubsection.1.2.1.3}% 
+\contentsline {subsubsection}{\numberline {1.2.1.4}Modules}{5}{subsubsection.1.2.1.4}% 
+\contentsline {subsubsection}{\numberline {1.2.1.5}Tasks}{5}{subsubsection.1.2.1.5}% 
+\contentsline {subsubsection}{\numberline {1.2.1.6}Playbooks}{5}{subsubsection.1.2.1.6}% 
+\contentsline {section}{\numberline {1.3}Docker}{5}{section.1.3}% 
+\contentsline {subsection}{\numberline {1.3.1}Konterjner vs. virtuální počítač}{6}{subsection.1.3.1}% 
+\contentsline {subsection}{\numberline {1.3.2}Stavební kameny Dockeru}{7}{subsection.1.3.2}% 
+\contentsline {subsubsection}{\numberline {1.3.2.1}Jmenné prostory}{7}{subsubsection.1.3.2.1}% 
+\contentsline {subsubsection}{\numberline {1.3.2.2}Kontrolní skupina}{7}{subsubsection.1.3.2.2}% 
+\contentsline {subsubsection}{\numberline {1.3.2.3}Docker daemon}{8}{subsubsection.1.3.2.3}% 
+\contentsline {subsubsection}{\numberline {1.3.2.4}Docker klient}{8}{subsubsection.1.3.2.4}% 
+\contentsline {subsubsection}{\numberline {1.3.2.5}Docker registr}{8}{subsubsection.1.3.2.5}% 
+\contentsline {subsubsection}{\numberline {1.3.2.6}Obrazy}{8}{subsubsection.1.3.2.6}% 
+\contentsline {subsection}{\numberline {1.3.3}Proč použít Hashcat?}{8}{subsection.1.3.3}% 
+\contentsline {chapter}{\chapternumberline {2}Hesla}{9}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Hašovací funkce}{9}{section.2.1}% 
+\contentsline {subsection}{\numberline {2.1.1}Vlastnosti hašovací funkce}{9}{subsection.2.1.1}% 
+\contentsline {subsection}{\numberline {2.1.2}Naorzeninový paradox}{10}{subsection.2.1.2}% 
+\contentsline {subsection}{\numberline {2.1.3}Windows}{10}{subsection.2.1.3}% 
+\contentsline {subsection}{\numberline {2.1.4}Linux}{10}{subsection.2.1.4}% 
+\contentsline {subsection}{\numberline {2.1.5}MacOS}{10}{subsection.2.1.5}% 
+\contentsline {section}{\numberline {2.2}Útoky na hesla}{10}{section.2.2}% 
+\contentsline {subsection}{\numberline {2.2.1}Hrubou silou}{10}{subsection.2.2.1}% 
+\contentsline {subsection}{\numberline {2.2.2}Pomocí masky}{10}{subsection.2.2.2}% 
+\contentsline {subsection}{\numberline {2.2.3}Se slovníkem}{10}{subsection.2.2.3}% 
+\contentsline {section}{\numberline {2.3}Entropie hesla}{10}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}Ochrana před různými útoky}{10}{section.2.4}% 
+\contentsline {chapter}{\chapternumberline {3}Závěr}{11}{chapter.3}% 
+\contentsline {chapter}{Literatura}{13}{chapter*.6}% 
+\contentsline {appendix}{\chapternumberline {A}Seznam použitých zkratek}{15}{appendix.A}% 
+\contentsline {appendix}{\chapternumberline {B}Obsah přiloženého CD}{17}{appendix.B}% 
