@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.2.28)  28 FEB 2020 11:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.2.28)  3 MAR 2020 16:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -785,30 +785,24 @@ LaTeX Font Info:    External font `lmex10' loaded for size
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.74 \chapter
+l.86 \chapter
              {Cíl práce} [1
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.74 \chapter
+l.86 \chapter
              {Cíl práce} [2
 
-] (./kubernetes.tex
-LaTeX Font Info:    Font shape `OMS/lmr/bx/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/b/n' tried instead on input line 60.
-) (./ansible.tex
+] (./kubernetes.tex) (./ansible.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-[4]) (./docker.tex [5]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[4]) (./docker.tex [5] [6] [7]) (./hashcat.tex [8] [9
 
- [6]
-[7]) (./hashcat.tex [8] [9
-
-]) (./passwords.tex) [10] (./main.bbl [11
+]) (./passwords.tex)
+[10] (./main.bbl [11
 
 ] [12
 
@@ -820,7 +814,7 @@ bibitemlist
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-24.
+34.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [17]
@@ -833,45 +827,45 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 127.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 127.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 137.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 137.
 
 (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 127.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 127.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 137.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 137.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9C04AE3862F688537F75AA8F877ED19B;6837.
+(rerunfilecheck)             Checksum: 5103B9573B071DECE7173CD262912767;6910.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 127.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 137.
  ) 
 Here is how much of TeX's memory you used:
- 13493 strings out of 492167
- 187854 string characters out of 6131558
- 322111 words of memory out of 5000000
+ 13491 strings out of 492167
+ 187851 string characters out of 6131558
+ 322337 words of memory out of 5000000
  17609 multiletter control sequences out of 15000+600000
- 66291 words of font info for 45 fonts, out of 8000000 for 9000
+ 65990 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,11n,31p,1337b,528s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{table.2.1} has been referenced but does not exist
-, replaced by a fixed one
-
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/font
-s/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmbsy
-10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texm
-f-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></us
-r/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts
-/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pf
-b></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf-dis
-t/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/
-lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (33 pages, 292105 bytes).
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fo
+nts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmb
+x10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/tex
+mf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></us
+r/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts
+/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.p
+fb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-
+dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public
+/lm/lmtt10.pfb>
+Output written on main.pdf (33 pages, 289703 bytes).
 PDF statistics:
- 491 PDF objects out of 1000 (max. 8388607)
- 438 compressed objects within 5 object streams
- 91 named destinations out of 1000 (max. 500000)
+ 486 PDF objects out of 1000 (max. 8388607)
+ 434 compressed objects within 5 object streams
+ 90 named destinations out of 1000 (max. 500000)
  422 words of extra memory for PDF output out of 10000 (max. 10000000)
 
