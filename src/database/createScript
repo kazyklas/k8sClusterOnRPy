@@ -1,0 +1,11 @@
+CREATE DATABASE cracking;
+
+\c cracking;
+
+create table hashes (hash varchar(128) NOT NULL,
+                     type varchar(16),
+                     solving varchar(5) DEFAULT false,
+                     result varchar(128)
+);
+
+
