@@ -15,7 +15,6 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-# TODO fill database with the file content    
 def insertToDB(filename, hash_type):
     USERNAME = "postgres"
     PASSWORD = "password1"
@@ -58,10 +57,12 @@ def upload_file():
         if 'file' not in request.files:
             flash('No file part')
             return redirect(request.url)
+        
         file = request.files['file']
-        hash_type = "sum" #request.files['hashtype']
-        # if user does not select file, browser also
-        # submit an empty part without filename
+      
+        # TODO read from form 
+        hash_type = request.args.get('hashtype')
+        
         if file.filename == '':# or  hash_type != "":
             flash('Bad Form!!')
             return redirect(request.url)
