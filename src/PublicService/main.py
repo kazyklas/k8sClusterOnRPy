@@ -32,6 +32,10 @@ app = FastAPI()
 # websockets       8.1    
 # wheel            0.34.2 
 
+# TODO get rid of the dublicated code
+# def connect_to_db():
+
+
 
 # Create_file is a function to get the file with hashes from user and update DB
 # with data that are in the file.
@@ -109,6 +113,68 @@ async def print_database():
         return {
             "Connect to DB": "Failed"
         }
+
+# Get the result based on the hash name
+@app.get("/solved/{hashid}")
+async def print_result_of_hash():
+    try:
+        # Connect to DB. TODO change ip address to the hostname of the DB.
+        connection = psycopg2.connect(database="cracking",
+                                      user="postgres",
+                                      password="password1",
+                                      host="127.0.0.1",
+                                      port="5432")
+
+        # Get the data from DB
+        # TODO check the values send to query with execute
+        SQL_query = "select (%s) from hashes"
+        cursor = connection.cursor()
+        cursor.execute(SQL_query, hashid)
+        result = cursor.fetchall()
+        
+        # Generate dict for future jsoning and responding
+        return {
+            "Result to the hash": result
+        }
+        
+
+    except (Exception, psycopg2.Error) as error :
+        return {
+            "Connect to DB": "Failed"
+        }
+
+
+# Get the result based on the hash name
+@app.get("/solved/{result}")
+async def print_result_of_hash():
+    try:
+        # Connect to DB. TODO change ip address to the hostname of the DB.
+        connection = psycopg2.connect(database="cracking",
+                                      user="postgres",
+                                      password="password1",
+                                      host="127.0.0.1",
+                                      port="5432")
+
+        # Get the data from DB
+        # TODO check the values send to query with execute
+        SQL_query = "select (%s) from hashes"
+        cursor = connection.cursor()
+        cursor.execute(SQL_query, result)
+        result = cursor.fetchall()
+        
+        # Generate dict for future jsoning and responding
+        return {
+            "Result to the hash": result
+        }
+        
+
+    except (Exception, psycopg2.Error) as error :
+        return {
+            "Connect to DB": "Failed"
+        }
+
+
+
 
 @app.get("/")
 async def main():
