@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.2.28)  3 MAR 2020 16:06
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Arch Linux) (preloaded format=xelatex 2020.2.28)  9 MAR 2020 15:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -358,7 +358,8 @@ File: babel.def 2019/10/15 3.35 Babel common definitions
 \babel@savecnt=\count138
 \U@D=\dimen147
 
-(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
+(/usr/share/texmf-dist/tex/generic/babel/xebabel.def
+(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def))
 \bbl@dirlevel=\count139
 )
 \l@canadian = a dialect from \language\l@american 
@@ -397,9 +398,10 @@ Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 Package: pdftexcmds 2019/07/25 v0.30 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: pdfTeX >= 1.30 not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
+Package pdftexcmds Info: \pdfdraftmode not found.
 Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
 Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
 )
@@ -432,8 +434,6 @@ Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
 (/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2019/09/28 v7.00a Hyperref: PDFDocEncoding definition (HO)
-Now handling font encoding PD1 ...
-... no UTF-8 mapping file for font encoding PD1
 )
 \Hy@SavedSpaceFactor=\count143
 
@@ -444,8 +444,6 @@ Package hyperref Info: Option `unicode' set `true' on input line 4414.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2019/09/28 v7.00a Hyperref: PDF Unicode definition (HO)
-Now handling font encoding PU ...
-... no UTF-8 mapping file for font encoding PU
 )
 Package hyperref Info: Option `pdfusetitle' set `true' on input line 4414.
 Package hyperref Info: Hyper figures OFF on input line 4540.
@@ -485,12 +483,20 @@ ass
 \c@memhycontfloat=\count149
 \c@Hpagenote=\count150
 )
-Package hyperref Info: Driver (autodetected): hpdftex.
+Package hyperref Info: Driver (autodetected): hxetex.
 
-(/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2019/09/28 v7.00a Hyperref driver for pdfTeX
-\Fld@listcount=\count151
-\c@bookmark@seq@number=\count152
+(/usr/share/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2019/09/28 v7.00a Hyperref driver for XeTeX
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/stringenc.sty
+Package: stringenc 2016/05/16 v1.11 Convert strings between diff. encodings (HO
+)
+)
+\pdfm@box=\box32
+\c@Hy@AnnotLevel=\count151
+\HyField@AnnotCount=\count152
+\Fld@listcount=\count153
+\c@bookmark@seq@number=\count154
 
 (/usr/share/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
@@ -500,9 +506,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \Hy@SectionHShift=\skip185
 )
 (/usr/share/texmf-dist/tex/latex/ellipsis/ellipsis.sty
-Package: ellipsis 2004/9/28 v1.6 ellipsis: fixes spacing around \protect \globa
-l \let \OT1\textellipsis .\kern \fontdimen 3\font .\kern \fontdimen 3\font .\ke
-rn \fontdimen 3\font \OT1\textellipsis 
+Package: ellipsis 2004/9/28 v1.6 ellipsis: fixes spacing around \protect \TU\te
+xtellipsis 
 
 (/usr/share/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
@@ -554,17 +559,17 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 (/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 105.
+Package graphics Info: Driver file: xetex.def on input line 105.
 
-(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+(/usr/share/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
 ))
 \Gin@req@height=\dimen152
 \Gin@req@width=\dimen153
 )
 (/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count153
+\etb@tempcnta=\count155
 )
 
 ******************************************************
@@ -590,13 +595,22 @@ Sidefootvsep and sidefootheight: 13.6pt and 594.32022pt
 Package: inputenc 2018/08/11 v1.3c Input encoding file
 \inpenc@prehook=\toks23
 \inpenc@posthook=\toks24
-)
-(/usr/share/texmf-dist/tex/latex/base/fontenc.sty
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (/usr/share/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
 
 (/usr/share/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+)
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 10
+5.
+
+(/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
 (/usr/share/texmf-dist/tex/generic/dirtree/dirtree.sty
 Package: dirtree 2012/12/11 v0.32 package wrapper for dirtree
@@ -610,10 +624,10 @@ Package: dirtree 2012/12/11 v0.32 package wrapper for dirtree
 \DT@rulewidth=\dimen158
 \DT@dotwidth=\dimen159
 \DTbaselineskip=\dimen160
-\DT@counti=\count154
-\DT@countii=\count155
-\DT@countiii=\count156
-\DT@countiv=\count157
+\DT@counti=\count156
+\DT@countii=\count157
+\DT@countiii=\count158
+\DT@countiv=\count159
 \DT@indent=\dimen161
 \DT@parskip=\dimen162
 \DT@baselineskip=\dimen163
@@ -630,6 +644,8 @@ LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
 LaTeX Font Info:    ... okay on input line 65.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
 LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
 LaTeX Font Info:    ... okay on input line 65.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
@@ -638,13 +654,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 65.
 LaTeX Font Info:    ... okay on input line 65.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 65.
 LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 65
-.
-
-(/usr/share/texmf-dist/tex/latex/lm/t1lmr.fd
-File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-\AtBeginShipoutBox=\box32
+\AtBeginShipoutBox=\box33
 Package hyperref Info: Link coloring OFF on input line 65.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -653,7 +663,7 @@ Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count158
+\c@section@level=\count160
 )
 Redoing nameref's sectioning
 Redoing nameref's label
@@ -666,49 +676,21 @@ LaTeX Info: Redefining \nameref on input line 65.
 \openout4 = `main.out'.
 
 LaTeX Info: Redefining \dots on input line 65.
-
-(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count159
-\scratchdimen=\dimen164
-\scratchbox=\box33
-\nofMPsegments=\count160
-\nofMParguments=\count161
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count162
-\MPscratchDim=\dimen165
-\MPnumerator=\count163
-\makeMPintoPDFobject=\count164
-\everyMPtoPDFconversion=\toks26
-) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-
-(/usr/share/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-)
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
-
-(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-)) [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
-
-]
-<cvut-logo-bw.pdf, id=223, 554.07pt x 193.29715pt>
-File: cvut-logo-bw.pdf Graphic file (type pdf)
-<use cvut-logo-bw.pdf>
-Package pdftex.def Info: cvut-logo-bw.pdf  used on input line 65.
-(pdftex.def)             Requested size: 184.5pt x 64.36635pt.
  [1
 
- <./cvut-logo-bw.pdf>] [2
+] [2
+
+]
+File: cvut-logo-bw.pdf Graphic file (type pdf)
+<use cvut-logo-bw.pdf>
+Missing character: There is no š in font ec-lmbxi10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+ [1
+
+] [2
 
 ]
 
@@ -724,6 +706,14 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 LaTeX Font Warning: Font shape `T1/lmss/bx/sc' undefined
 (Font)              using `T1/lmss/bx/n' instead on input line 65.
 
+Missing character: There is no ň in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ň in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
 [3
 
 ] [4
@@ -743,15 +733,33 @@ File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 65.
- [6
+Missing character: There is no š in font ec-lmr10!
 
-] [7
+Overfull \hbox (2.23239pt too wide) in paragraph at lines 65--65
+\T1/lmr/m/it/10.95 v Praze, Fa-kult¥ in-forma£ních tech-no-lo-gií. Práce je chr
+án¥na práv-ními p°edpisy
+ []
+
+Missing character: There is no š in font ec-lmr10!
+[6
+
+]
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+ [7
 
 ] [8] (./main.toc
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 8
 .
-
-(/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
+ (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
@@ -772,37 +780,677 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 8.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 8.
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
  [9
 
-]) [10] (./main.lof) [11
+]
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ě in font ec-lmbx10!
+Missing character: There is no ž in font ec-lmbx10!
+Missing character: There is no ř in font ec-lmbx10!
+Missing character: There is no ž in font ec-lmbx10!
+) [10] (./main.lof) [11
 
 ]
 [12
 
 ] (./main.lot) [13] [14
 
-]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.86 \chapter
-             {Cíl práce} [1
+] [1
 
-]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.86 \chapter
-             {Cíl práce} [2
+] [2
 
-] (./kubernetes.tex) (./ansible.tex
+]
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+ (./kubernetes.tex
+Missing character: There is no Ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no Ř in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no č in font ec-lmbx10!
+) (./ansible.tex
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-[4]) (./docker.tex [5] [6] [7]) (./hashcat.tex [8] [9
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ť in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no Č in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
 
-]) (./passwords.tex)
-[10] (./main.bbl [11
+[4]
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+) (./docker.tex
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ť in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ň in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ť in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no č in font ec-lmbx12!
+Missing character: There is no č in font ec-lmbx12!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ď in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+ [5]
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no Ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ť in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ť in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+ [6]
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ň in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ť in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no Č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ň in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ť in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+ [7]
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+) (./hashcat.tex
+Missing character: There is no č in font ec-lmbx12!
+Missing character: There is no ž in font ec-lmbx12!
+ [8]
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no š in font ec-lmbx12!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmbx12!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+ [9
+
+]
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+) (./passwords.tex
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no š in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ů in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ě in font ec-lmr10!
+Missing character: There is no ž in font ec-lmr10!
+Missing character: There is no ř in font ec-lmbx12!
+Missing character: There is no ů in font ec-lmbx12!
+)
+[10]
+Missing character: There is no ě in font ec-lmssbx10!
+ (./main.bbl [11
 
 ] [12
 
@@ -810,14 +1458,21 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 bibitemlist
 ) [13] [14
 
-] [15] [16
+]
+Missing character: There is no ž in font ec-lmssbx10!
+ [15] [16
 
 ]
+Missing character: There is no ř in font ec-lmssbx10!
+Missing character: There is no ž in font ec-lmssbx10!
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-34.
+36.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [17]
+)
+Missing character: There is no č in font ec-lmr10!
+Missing character: There is no ř in font ec-lmr10!
+ [17]
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
@@ -827,45 +1482,27 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 \tf@lot=\write7
 \openout7 = `main.lot'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 137.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 137.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 139.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 139.
 
 (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 137.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 137.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 139.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 139.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5103B9573B071DECE7173CD262912767;6910.
+(rerunfilecheck)             Checksum: C3FA1D1260F986029C3BAF4C254CFB45.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 137.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 139.
  ) 
 Here is how much of TeX's memory you used:
- 13491 strings out of 492167
- 187851 string characters out of 6131558
- 322337 words of memory out of 5000000
- 17609 multiletter control sequences out of 15000+600000
- 65990 words of font info for 44 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 37i,11n,31p,1337b,528s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf-dist/fo
-nts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmb
-x10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/tex
-mf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf-dist/fonts/type1/pu
-blic/lm/lmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></us
-r/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts
-/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.p
-fb></usr/share/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/share/texmf-
-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public
-/lm/lmtt10.pfb>
-Output written on main.pdf (33 pages, 289703 bytes).
-PDF statistics:
- 486 PDF objects out of 1000 (max. 8388607)
- 434 compressed objects within 5 object streams
- 90 named destinations out of 1000 (max. 500000)
- 422 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 13056 strings out of 492483
+ 181884 string characters out of 6134979
+ 332389 words of memory out of 5000000
+ 17390 multiletter control sequences out of 15000+600000
+ 65006 words of font info for 45 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 38i,11n,37p,1337b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+Output written on main.pdf (33 pages).

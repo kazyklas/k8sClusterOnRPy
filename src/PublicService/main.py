@@ -50,13 +50,17 @@ async def create_file(files: UploadFile = File(...), hashtype: str = Form(...)):
         cursor = connection.cursor()
 
         while True:
-            line = files.file.readline().decode("UTF-8")
+            line = files.file.readline().decode("UTF-8").rstrip()
+            #print(line)
             if line == '':
                 break
             else:
-                SQL_query = "INSERT INTO hashes (hash, type, solving, result) " \
-                            "VALUES (%s, %s, %s, %s);"
-                data = (line, hashtype, "False", "NULL")
+                SQL_query = """
+                            INSERT INTO 
+                            hashes (hash, type, solving, result) 
+                            VALUES (%s, %s, %s, %s);
+                            """
+                data = (line, hashtype, 'False', 'NULL')
                 cursor.execute(SQL_query, data)
 
         connection.commit()
@@ -84,7 +88,7 @@ async def print_database():
                                       host="127.0.0.1",
                                       port="5432")
 
-        SQL_query = "select * from hashes"
+        SQL_query = "select * from hashes where solving = 'Done'"
         cursor = connection.cursor()
         cursor.execute(SQL_query)
         records = cursor.fetchall()
@@ -93,8 +97,6 @@ async def print_database():
         for row in records:
             hash = {
                 'hash': row[0],
-                'type': row[1],
-                'sovling': row[2],
                 'result': row[3]
             }
             hashes.append(hash)

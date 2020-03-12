@@ -18,20 +18,16 @@ Worker than will ask if he realy can take the wokr and will start solving.
 @app.get("/get-work/")
 async def find_work_for_worker():
     try:
-        connection = psycopg2.connect(database="cracking",
-                                      user="postgres",
-                                      password="password1",
-                                      host="127.0.0.1",
-                                      port="5432")
+        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host="127.0.0.1", port="5432")
         cursor = connection.cursor()
         cursor.execute(
             """
-            SELECT hash, type 
-            FROM hashes h
+            SELECT hash,type 
+            FROM hashes 
             WHERE 
-            h.result = 'NULL'
+            result = 'NULL'
             and 
-            h.solving = 'False';
+            solving = 'False';
             """
         )
         result = cursor.fetchone()
@@ -51,29 +47,16 @@ worker won't start working.
 @app.put("/start-work/{hashid}")
 async def start_work_on_hash(hashid):
     try:
-        connection = psycopg2.connect(database="cracking",
-                                      user="postgres",
-                                      password="password1",
-                                      host="127.0.0.1",
-                                      port="5432")
+        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host="127.0.0.1", port="5432")
         cursor = connection.cursor()
-        cursor.execute(
-            """
-            SELECT solving 
-            FROM hashes h
-            WHERE 
-            h.hash = %s
-            and 
-            h.solving = 'False';
-            """,
-            [hashid, ]
-        )
-
+        cursor.execute("""SELECT solving FROM hashes WHERE hash = %s""", [hashid, ])
+        line = cursor.fetchone()
+        print(line[0])
         # Work was probably given to another worker before
         # Worker will ask again after the False response on work.
-        if cursor.fetchone() == "":
+        if line[0] != "False":
             return {
-                "False"
+                "False wrong fetch"
             }
         else:
             cursor.execute(
@@ -84,6 +67,7 @@ async def start_work_on_hash(hashid):
                 """,
                 [hashid, ]
             )
+            connection.commit()
             return {
                 "Start"
             }
@@ -101,12 +85,7 @@ He will send the hash and the result for the given hash.
 @app.put("/work-done/{hashid}/{result}")
 async def update_result_for_hash(hashid, result):
     try:
-        connection = psycopg2.connect(database="cracking",
-                                      user="postgres",
-                                      password="password1",
-                                      host="127.0.0.1",
-                                      port="5432")
-
+        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host="127.0.0.1", port="5432")
         # TODO add check to hash it by myself before insert
         cursor = connection.cursor()
         cursor.execute(
@@ -118,6 +97,7 @@ async def update_result_for_hash(hashid, result):
             """,
             [result, hashid, ]
         )
+        connection.commit()
         return {
             "Great job worker"
         }

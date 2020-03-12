@@ -6,6 +6,30 @@ Jeho hlavními cíly jsou jednoduchost a nenáročnost. Kód by měl být čitel
 
 Ansible se připojí na vzdálený počítač pomocí OpenSSH pomocí uživatele, který je současně přihlášen. Na spravovaném počítači není trřeba žádný agent. Je možnost nakonfigurovat Ansible, aby pro připojení nepoužíval OpenSSH, ale i kerberos nebo LDAP. 
 
+Ansible a jemu podobné nástroje se použijí v případě toho, že máme více serverů, nebo pokud budeme dodržovat trend IaaS. Kdyby měl admin ve firmě nasazovat nebo aktualizovat například sto počítačů, tak na každém stráví 15 minut. To bude 1500 minut a to je 25 hodin. Proto použije Ansible a za 20 minut je hotov. 
+
+Pro příklad budeme instalovat Docker na 3 počítače. Na těchto počítačích budeme mit v souboru /root/.ssh/authorized_keys naše veřejné klíče pro ssh. Na hostovi, ze kterého budeme instalovat je potreba Ansible. Tedy "sudo apt install ansible". V souboru hosts, který je pro Ansible tzv. inventářem naspecifikujeme stanice, na které budeme instalovat Docker. 
+
+IP ansible_user=root
+IP ansible_user=root
+IP ansible_user=root
+
+V souboru deployment.yml se specifikuje, co se bude spouštět a na jakých stanicích. 
+
+= hosts: all
+..
+..
+
+
+Ve složce tasks dale napíšeme script, který se spustí pomocí pythonu a jeho modulů na vzdálené stanici.
+
+- name 
+  apt"
+  	instal: docker.io
+  	
+  	
+  	
+
 \subsection{Komponenty}
 
 \subsubsection{Control node}

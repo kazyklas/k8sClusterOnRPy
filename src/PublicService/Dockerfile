@@ -1,10 +1,16 @@
 FROM python:3.7
 
-RUN pip install fastapi==0.52.0 \
-                uvicorn==0.11.3 \
-                psycopg2==2.8.4 \
-                simplejson==3.17.0 \
-                python-multipart==0.0.5
+ENV FASTAPI          0.52.0 
+ENV UVICORN          0.11.3
+ENV PSYCOPG2         2.8.4
+ENV SIMPLEJSON       3.17.0
+ENV PYTHON-MULTIPART 0.0.5
+
+RUN pip install fastapi==${FASTAPI} \
+                uvicorn==${UVICORN} \
+                psycopg2==${PSYCOPG2} \
+                simplejson==${SIMPLEJSON} \
+                python-multipart==${PYTHON-MULTIPART}
 
 EXPOSE 80
 
