@@ -1,17 +1,47 @@
+
 \section{Kubernetes}
 
 Jméno Kubernetes pochází z Řecka a znamená to kormidelník. Projekt zložili Joe Beda, Brendan Burns, a Craig McLuckie,ke kterým se rychle připojili inženýři z Googlu, jako Brian Grant a Tim Hockin. Software byl vydán v roce 2014.
 
-Kubernetes je opensource technologie pro vytvoření a správu klastru. Pomáhá na tomto klastru plánovat spuštění kontejnerů na základě jeho stavu. Řídi automatickou aktualizaci kontejnerů a jejich opravu. Kontejnery sdružuje do podů, což je základní jednotka pro Kubernetes. Tyto pody škáluje na požadovaný stav.
-Kubernetes také vyvažují zatížení a v případě pádu aplikace restartuje kontejner, aby znovu splnily požadavky.
+Kontejnery jsou perfektní způsob, jak vytvářet aplikace tak, aby byly lehce rozšiřitelné a dobře spravovatelné. Kubernetes nám následné pomáhá k jejich nasazení a škálování. Co všechno tedy Kubernetes dokáží:
+
+%https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/
+
+\begin{itemize}
+  	\item \textbf{Service discovery and load balancing}: Kubernetes propojují kontejnery zkrze DNS a nebo jejich IP adresy. Pokud na jeden 	kontejner jde mnoho požadavků, přesměrují tyto požadavky na jiný a tímto způsobem balancují provoz a zajišťují stabilitu aplikace.
+	\item \textbf{Orchestrace úložiště}: Dovolují automaticky připojovat vzdálené nebo lokální úložiště do klastru a zajistit tak konzistenci dat, zálohu a vysokou dostupnost z více míst.
+  	\item \textbf{Automated rollouts and rollbacks}: Můžeme popsat požadovaný stav pro naše nasazené kontejnery pomocí Kubernetes a ty automaticky a s kontrolou zajistí tento stav. Můžeme například automatizovat vytváření nových kontejnerů, smazání starých a převzetí všech zdrojů jako jsou data a další novým kontejnerem.
+	\item \textbf{Automatic bin packing}: Předáme Kubernetes vztvořený klastr s uzly a specifikujeme zdroje, které každý kontejner potřebuje pro své správné fungování. Kubernetes se následně postará o nejlepší rozdělení kontejnerů na uzly tak, aby optimalizoval naše zdroje. To se může nejvíce hodit na cloudových řešení, kde se platí za to, kolik se využívá zdrojů. 
+   	\item{Self-healing}:	Kubernetes restartují kontejnery, které selžou, nahradí je, zahodí pokud přestanou odpovídat na specifikované health checky a přestane je nabízet klientům nebo jiným službám dokud nejsou připravené. 
+	\item \textbf{Secret and configuration management}: Kubernetes napomáhají ukládání a sdílení či měnění citlivých informací zkrze klastr. Při změně těchto informací tedy nemusíme znovu vytvářet kontejnery a nově všechno předělat. A to bez jejich zveřejňování v konfiguracích. 
+
+\end{itemize}
 
 \subsection{Stavební kameny Kubernetes}
 
-Aby Kubernetes zajistili funkčnost klastru je zapotřebí rozdělit práci do několika komponent, které se starají o správný chod. Níže je znázorněno, z čeho se skládají. Dále se komponenty popíší a vysvětlí se na nich kompletní funkcionalita. 
+V momentě kdy nasadíme Kubernetes, dostaneme klastr, který se skládá z výpočetních uzlů. Takovému uzlu se říká node a na něm se spouští kontejnerizované aplikace. Každý klastr se skládá z alespoň jednoho takového nodu. 
 
-\subsubsection{Master}
+Tyto výpočetní nody poskztují prostor pro pody. Pod si můžeme představit jako balík, ve kterém jsou umístěné kontejnery. V praxi je nejčastěji Control Plane rozdělen na více počítačů, aby se zajistila vysoká dostupnost a maximalizovala se odolnost proti chybám. 
 
+\begin{figure}[!h]
+	\centering
+ 	\includegraphics[width=0.8\textwidth, angle=0]{kubernetes-architecture.png}
+ 	\caption[Komponenty Kubernetes]{Komponenty Kubernetes}\label{fig:float}
+\end{figure}
 
+\subsubsection{Control Plane}
+
+Součásti Control plane řídí a rozhodují co se stane s klastrem, např. řídí plánování, detekci a odpovědi klastru na události, jako jsou start nového podu pokud není splněn požadovaný stav. 
+
+Komponenty Control plane mohou být spuštěny na jakémkoliv počítači v klastru. Pro jednoduchost jsou však skripty napsané tak, aby tyto komponenty byly spuštěny na jednom počítači. Samotná aplikace je pak směřována mimo tento počítač. 
+
+% https://github.com/etcd-io/etcd
+\begin{itemize}
+	\item \textbf{kube-apiserver}: Tato komponenta poskytuje API uživateli. Je to front end pro Control plane. Hlavní implementací je kube-apiserver, ten je navržen, aby se dokázal horizontálně škálovat, to znamená, že se dokáže replikovat do více instancí. Můžeme tedy spustit více instancí a balancovat provoz. 
+	\item \textbf{etcd}: Skládá se z vysoce dostupné databáze s klíčem a hodnotou pro Kubernetes a všechna klastrová data. Její důležité vlastnosti jsou: jednoduchost, bezpecnost, rychlost, spolehlivost. 
+	\item \textbf{kube-scheduler}: Tato komponenta kontroluje a vytváří nové pody, pro které zatím nebyl přiřazen žádný node. Je odpovědná za přiřazení takového podu na nějký node podle požadavků. Vždy musí brát v potaz zdroje, které jsou nutné, hardwarové a softwarové vazby, affinity a anti-affinity specifikace, kde jsou uložena data, vnitřní vytížení a časové termíny.
+	\item \textbf{kube-controller-manager}
+\end{itemize}
 
 \subsubsection{Pod}
 
