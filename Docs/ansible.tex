@@ -8,26 +8,12 @@ Ansible se připojí na vzdálený počítač pomocí OpenSSH pomocí uživatele
 
 Ansible a jemu podobné nástroje se použijí v případě toho, že máme více serverů, nebo pokud budeme dodržovat trend IaaS. Kdyby měl admin ve firmě nasazovat nebo aktualizovat například sto počítačů, tak na každém stráví 15 minut. To bude 1500 minut a to je 25 hodin. Proto použije Ansible a za 20 minut je hotov. 
 
-Pro příklad budeme instalovat Docker na 3 počítače. Na těchto počítačích budeme mit v souboru /root/.ssh/authorized_keys naše veřejné klíče pro ssh. Na hostovi, ze kterého budeme instalovat je potreba Ansible. Tedy "sudo apt install ansible". V souboru hosts, který je pro Ansible tzv. inventářem naspecifikujeme stanice, na které budeme instalovat Docker. 
+Pro příklad budeme instalovat Docker na 3 počítače. Na těchto počítačích budeme mit v souboru 
 
-IP ansible_user=root
-IP ansible_user=root
-IP ansible_user=root
+%/root/.ssh/authorized_
 
-V souboru deployment.yml se specifikuje, co se bude spouštět a na jakých stanicích. 
-
-= hosts: all
-..
-..
-
-
-Ve složce tasks dale napíšeme script, který se spustí pomocí pythonu a jeho modulů na vzdálené stanici.
-
-- name 
-  apt"
-  	instal: docker.io
-  	
-  	
+keys naše veřejné klíče pro ssh. Na hostovi, ze kterého budeme instalovat je potreba Ansible. Tedy sudo apt install ansible. V souboru hosts, který je pro Ansible tzv. inventářem naspecifikujeme stanice, na které budeme instalovat Docker. 
+	
   	
 
 \subsection{Komponenty}

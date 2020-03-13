@@ -19,23 +19,23 @@ Virtuální počítač je regulérní stroj, který běží na daném hostovi. T
 
 Pro to, aby na hostovi, nebo-li na systému, který má nainstalovaný hypervizor mohlo běžet více virtuálních strojů stačí jedna jeho instance. Nevýhoda tohoto řešení je taková, že se mnoho zdrojů duplikuje. Řekněme, že na hostitelském systému poběží tři aplikace. Každá taková aplikace bude izolovaná od ostatních pomocí virtuálního stroje. Dejme tomu, že to bude databáze, webový server a stroj pro vzdáleného uživatele. Níže uvidíme nákres tohoto řešení. 
 
-%TODO Nákres řešení pro tři virtuálky
-%\begin{figure}
-%	\centering
-%	\includegraphics{/home/tklas/Documents/k8sClusterOnRPy/Docs/Pictures/docker-VM.svg}
-%	\label{fig:docker-vm}
-%\end{figure}
-
+% https://www.docker.com/resources/what-container
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.73\textwidth, angle=0]{docker-VM.png}
+	\caption[Docker VM]{Oddělení aplikací za pomoci hypervizoru a virtuálních strojů.}
+	\label{fig:docker-vm}
+\end{figure}
 
 To samé, jako je na obrázku výše se pokusíme realizovat pomocí Dockeru a kontejnerů. Kontejnery, jelikož využívají overlayFS jsou schopny poskytnout jádro operačního systému kontejneru bez zbytečné kopie a využívají copy-on-write funkcionality. Níže uvidíme jak za pomoci jmenných prostorů, kontrolních skupin a overlayFS je tento přístup úspornější a rychlejší než virtualizace. 
 
-%TODO Nákres řešení pro tři kontejnery
-%\begin{figure}
-%	\centering
-%	\includegraphics{/home/tklas/Documents/k8sClusterOnRPy/Docs/Pictures/docker-docker.svg}
-%	\label{fig:docker-docker}
-%\end{figure}
 
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.8\textwidth, angle=0]{docker-docker.png}
+	\caption[Docker kontejnery]{Oddělení aplikací za pomoci Dockeru}
+	\label{fig:docker-docker}
+\end{figure}
 
 Místo, které jsme na hostitelském systému ušetřili však není jediná výhoda. Na tomto příkladu se však rozdíly mezi těmito technologiemi vysvětlují nejlépe. Dalšími výhodami je rychlost spuštění kontejneru a virtuálního stroje. Při spuštění se pouze připojí obraz OS, vytvoří se izolované procesy a popřípadě se omezí i zdroje, které má kontejner využívat. Nehledě na to, že pokud kontejner nemá omezení nebo limit využitých zdrojů alokuje si je dynamicky oproti virtuálnímu počítači, který si pro sebe naalokuje danou paměť při spuštění.  
 
@@ -43,6 +43,13 @@ Místo, které jsme na hostitelském systému ušetřili však není jediná vý
 \subsection{Stavební kameny Dockeru}
 
 Jak je již uvedeno v předešlé kapitole, Docker využívá vychytávky linuxového kernelu pro svojí funkcionalitu. Díky tomuto perfektně funguje na počítačích, kde běží OS založený na Linuxu. V následujících sekcích budou tyto technologie blíže popsány a bude vysvětlena jejich důležitost. 
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.8\textwidth, angle=0]{docker-architecture.png}
+	\caption[Docker architektura]{Docker a jeho komponenty.}
+	\label{fig:docker-architecture}
+\end{figure}
 
 %TODO Jak jsou na tom jiné OS
 

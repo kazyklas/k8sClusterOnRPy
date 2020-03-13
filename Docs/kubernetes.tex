@@ -29,6 +29,18 @@ Tyto výpočetní nody poskztují prostor pro pody. Pod si můžeme představit 
  	\caption[Komponenty Kubernetes]{Komponenty Kubernetes}\label{fig:float}
 \end{figure}
 
+\subsubsection{Pod}
+% https://medium.com/@aykanferhat/running-our-first-container-on-kubernetes-80041d659633
+Pod je základní stavební jednotka Kubernetes. Je to balíček kontejnerů nebo též samostatný kontejner, který je specifikován v deploymentu a Kubernetes se o něj mají starat. Pro představu je zde obrázek, z čeho se pod skládá. Takových podů může být na jednom nodu několik. To jak se rozhodneme zabalit naši aplikaci do podů je čistě na tom, jak se rozhodneme. Abychom však neporušovali konvence tzv. service architektury. Musíme do jednoho podu dávat služby pouze takové, které dávají smysl. Pro příklad nebudeme do jednoho podu balit databázi s webovým UI. Při škálování by se totiž nejen že replikovala aplikace ale i databáz.  
+
+\begin{figure}[!h]
+	\centering
+ 	\includegraphics[width=0.8\textwidth, angle=0]{kubernetes-pod.png}
+ 	\caption[Kubernetes Pod]{Z čeho se skládá pod.}\label{fig:float}
+\end{figure}
+
+
+
 \subsubsection{Control Plane}
 
 Součásti Control plane řídí a rozhodují co se stane s klastrem, např. řídí plánování, detekci a odpovědi klastru na události, jako jsou start nového podu pokud není splněn požadovaný stav. 
@@ -37,49 +49,53 @@ Komponenty Control plane mohou být spuštěny na jakémkoliv počítači v klas
 
 % https://github.com/etcd-io/etcd
 \begin{itemize}
+
 	\item \textbf{kube-apiserver}: Tato komponenta poskytuje API uživateli. Je to front end pro Control plane. Hlavní implementací je kube-apiserver, ten je navržen, aby se dokázal horizontálně škálovat, to znamená, že se dokáže replikovat do více instancí. Můžeme tedy spustit více instancí a balancovat provoz. 
+
 	\item \textbf{etcd}: Skládá se z vysoce dostupné databáze s klíčem a hodnotou pro Kubernetes a všechna klastrová data. Její důležité vlastnosti jsou: jednoduchost, bezpecnost, rychlost, spolehlivost. 
+
 	\item \textbf{kube-scheduler}: Tato komponenta kontroluje a vytváří nové pody, pro které zatím nebyl přiřazen žádný node. Je odpovědná za přiřazení takového podu na nějký node podle požadavků. Vždy musí brát v potaz zdroje, které jsou nutné, hardwarové a softwarové vazby, affinity a anti-affinity specifikace, kde jsou uložena data, vnitřní vytížení a časové termíny.
-	\item \textbf{kube-controller-manager}
+
+	\item \textbf{kube-controller-manager}: V této komponentě je spuštěn proces pro kontrolu klastru. Skládá se z více částí, které jsou zkompilovány do jednoho programu aby mohly běžet v jednom procesu, který se o vše stará. A stará se o následující:
+	\begin{enumerate}
+
+		\item \textbf{Node Controller}: Odpovědný za upozonění pokud jeden z nodů přestane odpovídat.
+
+		\item \textbf{Replication Controller}: Odpovědný za dodržování správného počtu spuštěných aplikací v klastru. Pokud tedy část aplikace spadne je odpovědný za start nové instance.
+
+		\item \textbf{Endpoints Controller}: Přidá nová uzly, nebo-li připojí služby a pody do klastru po jejich spuštění. 
+	
+		\item \textbf{Service Account a Token Controllers}: Vytváří výchozí účty a přístupové tokeny k API pro nové namespacy. 
+	\end{enumerate}
+	
+	%https://kubernetes.io/docs/tasks/administer-cluster/running-cloud-controller/
+	% https://github.com/kubernetes/cloud-provider/blob/master/cloud.go
+	\item \textbf{cloud-controller-manager}: Tento daemon dovoluje připojit cloudové služby. Byl vytvořen pro možnost oddělení cloudových vývojařů od zdrojového kódu Kubernetes. cloud-control-manager je možné připoji k jakému koliv poskytovateli, který implementuje cloudprovider.interface.
 \end{itemize}
 
-\subsubsection{Pod}
+\subsection{Komponenty nodu}
 
-
-
-\subsubsection{Plánovač}
-
-
-
-\subsubsection{Controller Manager}
-
-
-
-\subsubsection{API server}
-
-
+Node, jak je již uvedeno výše, je v podstatě stroj, který je připojen do klastru. Na tomto nodu mohou běžet pody, což je balík kontejnerů. Níže je popsáno z čeho se tento node skládá a co na něm musí běžet, aby Kubernetes správně operovalo.
 
 \subsubsection{Kubelet}
 
-
+Je agent zajišťující běh všech kontejnerů v daném podu. Kubelet převezme množinu požadavků na daný pod, tzv. PodSpecs a zajistí, že všechny kontejnerz popsány v těchto specifikacích jsou spuštěné a odpovídají na health checky. 
 
 \subsubsection{Kube-Proxy}
 
+Je síťová proxy, která běží na každém nodu. Spravuje síťová pravidla. Zajišťuje tak komunikaci mezi jednotlivými pody a nody uvnitř klastru. Používá szstémovou vrstvu na filtrování paketů, pokud je dostupná, jinak forwarduje provoz za pomoci svých prostředků. Níže znázorněno na obrázcích.
+% https://kubernetes.io/docs/concepts/services-networking/service/
+\begin{figure}[!h]
+	\centering
+ 	\includegraphics[width=0.8\textwidth, angle=0]{kubernetes-proxy.png}
+ 	\caption[Kubernetes proxyuspm]{Kubernetes proxy - User space proxy mode}\label{fig:float}
+\end{figure}
 
-
-\subsection{Kubernetes a tajemství}
-
-
-
-\subsection{Aktualizace obraz}
-
-
-
-\subsection{Sdílené datové prostory}
-
-
-
-\subsection{Cloudový poskytovatelé}
+\begin{figure}[!h]
+	\centering
+ 	\includegraphics[width=0.8\textwidth, angle=0]{kubernetes-proxyip.png}
+ 	\caption[Kubernetes proxyiptpm]{Kubernetes proxy - iptables proxy mode}\label{fig:float}
+\end{figure}
 
 
 
