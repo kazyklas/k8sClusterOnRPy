@@ -33,19 +33,15 @@
 \contentsline {subsubsection}{\numberline {1.3.2.6}Obrazy}{13}{subsubsection.1.3.2.6}% 
 \contentsline {subsection}{\numberline {1.3.3}Systémová kontejnery}{13}{subsection.1.3.3}% 
 \contentsline {chapter}{\chapternumberline {2}Hesla}{15}{chapter.2}% 
-\contentsline {subsection}{\numberline {2.0.1}Windows}{15}{subsection.2.0.1}% 
-\contentsline {subsubsection}{\numberline {2.0.1.1}Popis protokolu}{15}{subsubsection.2.0.1.1}% 
-\contentsline {subsection}{\numberline {2.0.2}Linux}{16}{subsection.2.0.2}% 
-\contentsline {section}{\numberline {2.1}Hešovací funkce}{17}{section.2.1}% 
-\contentsline {subsubsection}{\numberline {2.1.0.1}MD5}{18}{subsubsection.2.1.0.1}% 
-\contentsline {subsubsection}{\numberline {2.1.0.2}SHA1}{19}{subsubsection.2.1.0.2}% 
-\contentsline {section}{\numberline {2.2}Útoky na hesla}{19}{section.2.2}% 
-\contentsline {subsection}{\numberline {2.2.1}Hrubou silou}{19}{subsection.2.2.1}% 
-\contentsline {subsection}{\numberline {2.2.2}Pomocí masky}{19}{subsection.2.2.2}% 
-\contentsline {subsection}{\numberline {2.2.3}Se slovníkem}{19}{subsection.2.2.3}% 
-\contentsline {section}{\numberline {2.3}Entropie hesla}{19}{section.2.3}% 
-\contentsline {section}{\numberline {2.4}Ochrana před různými útoky}{19}{section.2.4}% 
-\contentsline {chapter}{\chapternumberline {3}Závěr}{21}{chapter.3}% 
-\contentsline {chapter}{Literatura}{23}{chapter*.6}% 
-\contentsline {appendix}{\chapternumberline {A}Seznam použitých zkratek}{25}{appendix.A}% 
-\contentsline {appendix}{\chapternumberline {B}Obsah přiloženého CD}{27}{appendix.B}% 
+\contentsline {section}{\numberline {2.1}Windows}{15}{section.2.1}% 
+\contentsline {subsection}{\numberline {2.1.1}Popis protokolu}{16}{subsection.2.1.1}% 
+\contentsline {section}{\numberline {2.2}Linux}{16}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Hešovací funkce}{17}{section.2.3}% 
+\contentsline {subsubsection}{\numberline {2.3.0.1}MD5}{18}{subsubsection.2.3.0.1}% 
+\contentsline {subsubsection}{\numberline {2.3.0.2}SHA-1}{18}{subsubsection.2.3.0.2}% 
+\contentsline {section}{\numberline {2.4}Útoky na hesla}{18}{section.2.4}% 
+\contentsline {section}{\numberline {2.5}Entropie hesla}{21}{section.2.5}% 
+\contentsline {chapter}{\chapternumberline {3}Závěr}{23}{chapter.3}% 
+\contentsline {chapter}{Literatura}{25}{chapter*.6}% 
+\contentsline {appendix}{\chapternumberline {A}Seznam použitých zkratek}{27}{appendix.A}% 
+\contentsline {appendix}{\chapternumberline {B}Obsah přiloženého CD}{29}{appendix.B}% 
