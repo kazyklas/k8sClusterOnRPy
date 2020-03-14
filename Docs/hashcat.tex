@@ -146,18 +146,41 @@ Při inovaci standardu FIPS 180-1 na FIPS 180-2  byly zavedeny 3 nové hašovac�
 \end{table}
 
 \section{Útoky na hesla}
+%https://www.csoonline.com/article/2130877/the-biggest-data-breaches-of-the-21st-century.html
 
+Útoky na hesla jsou na denním pořádku na většinu z nás. Pokud se koukneme do blízké minulosti uvidíme, že firmy jako jsou např.: 
 
+\begin{itemize}
+	\item \textbf{Yahoo}, které v roce 2013 a 2014 unikly data milionů uživatelů. V roce 2013 to byl veliký problém, protože hesla nebyla pečlivě hešována. V roce 2014 se však již poučili a hesla zahešovali bcrypt algoritmem.
+	\item \textbf{Marriott International}, útok se uskutečnil v roce 2014. Byl však objeven až v roce 2018. Během této doby bylo kompromitováno okolo 500 miliónů uživatelů. 
+	\item \textbf{eBay}, roku 2014 unikly jména, adresy, data a hesla přes 145 miliónům uživatelů. Útok vyžadoval po zákazníkovi změnu hesla, ale přidal i kolonku na citlivé informace, které byly ukládány. 
+	\item \textbf{Sony's PlayStation Network}, která byla napadena v roce 2011. Ztráty se odhadují na 171 miliónů dolarů. 12 miliónů kreditních karet, které byly uloženy bez jakého koliv zabezpečení bylo kompromitováno.
+\end{itemize}
 
-\subsection{Hrubou silou}
+Jak lze vidět i v 21 století se hesla a další citlivé informace ukládají s velkou neopatrností a ledabilostí a to i u takových to známých firem. Seznam by mohl pokračovat do nekonečna, protože každým dnem útoků jen přibývá. 
 
-\subsection{Pomocí masky}
+Dále se podíváme na jedny z nejpoužívanějších praktik získávání a lámání hesel. V praktické části bude použit program Hashcat na provádění některých z níže uvedených útoků.
 
-\subsection{Se slovníkem}
+% https://www.onelogin.com/learn/6-types-password-attacks
+\begin{itemize}
+	\item \textbf{Slovníkový útok} využívá znalosti toho, že uživatelé tíhnou k používání hesel, jež jsou dobře známá slova. Pokud je politika použitého hesla přísnější, na začátku bude velké písmeno a na konci číslovka. Nemusí nad nimi poté těžce přemýšlet, jako nad náhodně vygenerovanými řetězci. Útočník potřebuje soubor, který obsahuje známá hesla. Takový není těžké najít kdekoliv na internetu. K testovaným útokům pomocí slovníku bude v pozdější části využit soubor rockyu.txt. 
+	\item \textbf{Hrubá síla} již není tak efektivní, jako bývala před lety, kdy se začali používat a nutit po uživatelích hesla s alespoň 8 znaky. Tento útok je ve své podstatě nejjednodušší. Útočník spostí program, který mu generuje náhodné sekvence čísel a písmen ze sady, která byla použita při psaní hesla a zkouší veškeré možnosti. Jednoho dne se tedy určitě dostane na správnou posloupnost, ta se však s každým přidaným znakem exponenciálně vzdaluje.
+	\item \textbf{Odposlech komunikace}. Útočník odposlechne komunikaci. Pokud je taková komunikace nešifrována je jednoduché z paketu získat heslo. Samoyřejmě to nemusí být pouze heslo, které se po síti přenáši. Proti takovým útokům se používá například SSL (Secure Sockets Layer) protkol, ten zajistí šifrování komunikace mezi subjekty.
+	\item \textbf{Man In the Middle}, nebo-li MITM útok. Útočník se dostane do prostoru mezi uživatelem a např.: autentizačním serverem. Rozdíl mezi odposlechem je ten, že se rovnou napojí na linku a směruje provoz přes své zařízení. Takový útok je např. DNS sniffing.
+	\item \textbf{Key logger attack}. Útočník nainstaluje software na hostitelský systém, který ukládá veškeré zmáčknutí klávesnice a následně data získá a analyzuje. Nemusí se však jednat pouze o SW, existují i USB rozbočovače, které se přípojí mezi klávesnici a USB port na systému.
+	\item \textbf{Sociální inženýrství} je odvětví útoků, které cílý na neznalost uživatele, nebo jeho neopatrnost. Mezi takové patří: 
+	\begin{enumerate}
+		\item \textbf{Phishing}, se zaměřuje na kontaktování uživatele a donutí jej kliknout na závadný odkaz, či stáhnout např. kez logger skrze e-mail.
+		\item \textbf{Baiting}, útočník nechá na chodníku kde se oběť pohybuje pohozené médium s útočným softwarem a počká až jej oběť sebere a dá jej do svého systému.
+		\item \textbf{Quid quo pro}, kdy se útočník vydává za technockého zaměstnance a interaguje s obětí a donutí ji mu poskytnout cestu do systému.
+	\end{enumerate}
+\end{itemize}
+
+%TODO table with attacks and protection
 
 \section{Entropie hesla}
 
-\section{Ochrana před různými útoky}
+
 
 
 % https://vxempire.xyz/repo/Hash%20Crack.pdf
