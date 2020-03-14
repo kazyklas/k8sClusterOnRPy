@@ -8,12 +8,17 @@
 \addvspace {10pt}
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Komponenty Kubernetes}}{4}{figure.1.1}% 
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Kubernetes Pod}}{5}{figure.1.2}% 
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Kubernetes proxyuspm}}{7}{figure.1.3}% 
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Kubernetes proxyiptpm}}{7}{figure.1.4}% 
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Kubernetes proxy v user space módu}}{7}{figure.1.3}% 
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Kubernetes proxy fungující s iptables}}{7}{figure.1.4}% 
 \contentsline {figure}{\numberline {1.5}{\ignorespaces Docker VM}}{10}{figure.1.5}% 
 \contentsline {figure}{\numberline {1.6}{\ignorespaces Docker kontejnery}}{11}{figure.1.6}% 
 \contentsline {figure}{\numberline {1.7}{\ignorespaces Docker architektura}}{12}{figure.1.7}% 
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Docker kontejnery}}{14}{figure.1.8}% 
+\contentsline {figure}{\numberline {1.9}{\ignorespaces LXC systémové kontejnery}}{14}{figure.1.9}% 
 \addvspace {10pt}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Hesla windows}}{16}{figure.2.1}% 
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Hesla hešovací funkce}}{17}{figure.2.2}% 
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Hesla a hešovací funkce MD5}}{18}{figure.2.3}% 
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

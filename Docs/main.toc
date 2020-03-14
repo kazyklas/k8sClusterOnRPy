@@ -9,7 +9,7 @@
 \contentsline {chapter}{\chapternumberline {1}Cíl práce}{3}{chapter.1}% 
 \contentsline {section}{\numberline {1.1}Kubernetes}{3}{section.1.1}% 
 \contentsline {subsection}{\numberline {1.1.1}Stavební kameny Kubernetes}{4}{subsection.1.1.1}% 
-\contentsline {subsubsection}{\numberline {1.1.1.1}Pod}{4}{subsubsection.1.1.1.1}% 
+\contentsline {subsubsection}{\numberline {1.1.1.1}Pod}{5}{subsubsection.1.1.1.1}% 
 \contentsline {subsubsection}{\numberline {1.1.1.2}Control Plane}{5}{subsubsection.1.1.1.2}% 
 \contentsline {subsection}{\numberline {1.1.2}Komponenty nodu}{6}{subsection.1.1.2}% 
 \contentsline {subsubsection}{\numberline {1.1.2.1}Kubelet}{6}{subsubsection.1.1.2.1}% 
@@ -27,26 +27,25 @@
 \contentsline {subsection}{\numberline {1.3.2}Stavební kameny Dockeru}{11}{subsection.1.3.2}% 
 \contentsline {subsubsection}{\numberline {1.3.2.1}Jmenné prostory}{11}{subsubsection.1.3.2.1}% 
 \contentsline {subsubsection}{\numberline {1.3.2.2}Kontrolní skupina}{12}{subsubsection.1.3.2.2}% 
-\contentsline {subsubsection}{\numberline {1.3.2.3}Docker daemon}{12}{subsubsection.1.3.2.3}% 
+\contentsline {subsubsection}{\numberline {1.3.2.3}Docker daemon}{13}{subsubsection.1.3.2.3}% 
 \contentsline {subsubsection}{\numberline {1.3.2.4}Docker klient}{13}{subsubsection.1.3.2.4}% 
 \contentsline {subsubsection}{\numberline {1.3.2.5}Docker registr}{13}{subsubsection.1.3.2.5}% 
 \contentsline {subsubsection}{\numberline {1.3.2.6}Obrazy}{13}{subsubsection.1.3.2.6}% 
 \contentsline {subsection}{\numberline {1.3.3}Systémová kontejnery}{13}{subsection.1.3.3}% 
-\contentsline {subsection}{\numberline {1.3.4}Proč použít Hashcat?}{13}{subsection.1.3.4}% 
 \contentsline {chapter}{\chapternumberline {2}Hesla}{15}{chapter.2}% 
-\contentsline {section}{\numberline {2.1}Hašovací funkce}{15}{section.2.1}% 
-\contentsline {subsection}{\numberline {2.1.1}Vlastnosti hašovací funkce}{15}{subsection.2.1.1}% 
-\contentsline {subsection}{\numberline {2.1.2}Naorzeninový paradox}{16}{subsection.2.1.2}% 
-\contentsline {subsection}{\numberline {2.1.3}Windows}{16}{subsection.2.1.3}% 
-\contentsline {subsection}{\numberline {2.1.4}Linux}{16}{subsection.2.1.4}% 
-\contentsline {subsection}{\numberline {2.1.5}MacOS}{16}{subsection.2.1.5}% 
-\contentsline {section}{\numberline {2.2}Útoky na hesla}{16}{section.2.2}% 
-\contentsline {subsection}{\numberline {2.2.1}Hrubou silou}{16}{subsection.2.2.1}% 
-\contentsline {subsection}{\numberline {2.2.2}Pomocí masky}{16}{subsection.2.2.2}% 
-\contentsline {subsection}{\numberline {2.2.3}Se slovníkem}{16}{subsection.2.2.3}% 
-\contentsline {section}{\numberline {2.3}Entropie hesla}{16}{section.2.3}% 
-\contentsline {section}{\numberline {2.4}Ochrana před různými útoky}{16}{section.2.4}% 
-\contentsline {chapter}{\chapternumberline {3}Závěr}{17}{chapter.3}% 
-\contentsline {chapter}{Literatura}{19}{chapter*.6}% 
-\contentsline {appendix}{\chapternumberline {A}Seznam použitých zkratek}{21}{appendix.A}% 
-\contentsline {appendix}{\chapternumberline {B}Obsah přiloženého CD}{23}{appendix.B}% 
+\contentsline {subsection}{\numberline {2.0.1}Windows}{15}{subsection.2.0.1}% 
+\contentsline {subsubsection}{\numberline {2.0.1.1}Popis protokolu}{15}{subsubsection.2.0.1.1}% 
+\contentsline {subsection}{\numberline {2.0.2}Linux}{16}{subsection.2.0.2}% 
+\contentsline {section}{\numberline {2.1}Hešovací funkce}{17}{section.2.1}% 
+\contentsline {subsubsection}{\numberline {2.1.0.1}MD5}{18}{subsubsection.2.1.0.1}% 
+\contentsline {subsubsection}{\numberline {2.1.0.2}SHA1}{19}{subsubsection.2.1.0.2}% 
+\contentsline {section}{\numberline {2.2}Útoky na hesla}{19}{section.2.2}% 
+\contentsline {subsection}{\numberline {2.2.1}Hrubou silou}{19}{subsection.2.2.1}% 
+\contentsline {subsection}{\numberline {2.2.2}Pomocí masky}{19}{subsection.2.2.2}% 
+\contentsline {subsection}{\numberline {2.2.3}Se slovníkem}{19}{subsection.2.2.3}% 
+\contentsline {section}{\numberline {2.3}Entropie hesla}{19}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}Ochrana před různými útoky}{19}{section.2.4}% 
+\contentsline {chapter}{\chapternumberline {3}Závěr}{21}{chapter.3}% 
+\contentsline {chapter}{Literatura}{23}{chapter*.6}% 
+\contentsline {appendix}{\chapternumberline {A}Seznam použitých zkratek}{25}{appendix.A}% 
+\contentsline {appendix}{\chapternumberline {B}Obsah přiloženého CD}{27}{appendix.B}% 

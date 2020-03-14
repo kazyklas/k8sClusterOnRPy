@@ -20,7 +20,7 @@ Virtuální počítač je regulérní stroj, který běží na daném hostovi. T
 Pro to, aby na hostovi, nebo-li na systému, který má nainstalovaný hypervizor mohlo běžet více virtuálních strojů stačí jedna jeho instance. Nevýhoda tohoto řešení je taková, že se mnoho zdrojů duplikuje. Řekněme, že na hostitelském systému poběží tři aplikace. Každá taková aplikace bude izolovaná od ostatních pomocí virtuálního stroje. Dejme tomu, že to bude databáze, webový server a stroj pro vzdáleného uživatele. Níže uvidíme nákres tohoto řešení. 
 
 % https://www.docker.com/resources/what-container
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.73\textwidth, angle=0]{docker-VM.png}
 	\caption[Docker VM]{Oddělení aplikací za pomoci hypervizoru a virtuálních strojů.}
@@ -30,7 +30,7 @@ Pro to, aby na hostovi, nebo-li na systému, který má nainstalovaný hypervizo
 To samé, jako je na obrázku výše se pokusíme realizovat pomocí Dockeru a kontejnerů. Kontejnery, jelikož využívají overlayFS jsou schopny poskytnout jádro operačního systému kontejneru bez zbytečné kopie a využívají copy-on-write funkcionality. Níže uvidíme jak za pomoci jmenných prostorů, kontrolních skupin a overlayFS je tento přístup úspornější a rychlejší než virtualizace. 
 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\textwidth, angle=0]{docker-docker.png}
 	\caption[Docker kontejnery]{Oddělení aplikací za pomoci Dockeru}
@@ -44,7 +44,8 @@ Místo, které jsme na hostitelském systému ušetřili však není jediná vý
 
 Jak je již uvedeno v předešlé kapitole, Docker využívá vychytávky linuxového kernelu pro svojí funkcionalitu. Díky tomuto perfektně funguje na počítačích, kde běží OS založený na Linuxu. V následujících sekcích budou tyto technologie blíže popsány a bude vysvětlena jejich důležitost. 
 
-\begin{figure}[!h]
+
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.8\textwidth, angle=0]{docker-architecture.png}
 	\caption[Docker architektura]{Docker a jeho komponenty.}
@@ -59,7 +60,7 @@ Jmenné prostory zastřešují veškeré zdroje systému tak, že každý proces
 
 % parametry pro table: h! = nejblize
 % p{5cm} na zalomovani bunky
-\begin{table}[h!]
+\begin{table}[!ht]
   \begin{center}
 	\caption{Linuxové jmenné prostory}
     \label{tab:Jmenne prostory}
@@ -119,6 +120,20 @@ Každý příkaz v Dockerfilu vytvoří na locálním počítači tzv. vrstvu, k
 
 Docker kontejnery nejsou však jediné, které se v produkčním prostředí používají. Patří do tzv. aplikačních kontejnerů. Jejich účel je zpravidla spouštět pouze jeden proces. K takovýmto kontejnerům můžeme ještě přidat kontejnerz Rocket. Hlavním rozdílem je to, že rtk nemá na systému spuštěného daemona jako má např. Docker. Při spuštění se tedy pod běžícím spustí další. 
 
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.95\textwidth, angle=0]{docker-screen.png}
+	\caption[Docker kontejnery]{Docker a jeho procesy.}
+	\label{fig:docker-list}
+\end{figure}
+
 Dále tady máme systémové kontejnery. Ty jsou používané jako klasické OS. Na jednom silném stroji může běžet několik takových kontejnerů a ty mohou uživateli poskytovat oddělené prostředí od celého serveru a nabídnout mu izolovaný prostor od ostattních pomocí výše zmíněných technologií. Tuto možnost zastřešuje projekt LXC později LXD.
 
 %TODO add image of the lxc list
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.95\textwidth, angle=0]{lxc-screen.png}
+	\caption[LXC systémové kontejnery]{LXC a jeho procesy.}
+	\label{fig:lxc-list}
+\end{figure}

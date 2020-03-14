@@ -36,18 +36,18 @@
 \@writefile{toc}{\contentsline {section}{\numberline {1.1}Kubernetes}{3}{section.1.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1.1}Stavební kameny Kubernetes}{4}{subsection.1.1.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Komponenty Kubernetes}}{4}{figure.1.1}\protected@file@percent }
-\newlabel{fig:float}{{\M@TitleReference {1.1}{Komponenty Kubernetes}}{4}{Komponenty Kubernetes}{figure.1.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.1.1.1}Pod}{4}{subsubsection.1.1.1.1}\protected@file@percent }
+\newlabel{fig:architecture}{{\M@TitleReference {1.1}{Komponenty Kubernetes}}{4}{Komponenty Kubernetes}{figure.1.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.1.1.1}Pod}{5}{subsubsection.1.1.1.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Kubernetes Pod}}{5}{figure.1.2}\protected@file@percent }
-\newlabel{fig:float}{{\M@TitleReference {1.2}{Kubernetes Pod}}{5}{Kubernetes Pod}{figure.1.2}{}}
+\newlabel{fig:pod}{{\M@TitleReference {1.2}{Kubernetes Pod}}{5}{Kubernetes Pod}{figure.1.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.1.1.2}Control Plane}{5}{subsubsection.1.1.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1.2}Komponenty nodu}{6}{subsection.1.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.1.2.1}Kubelet}{6}{subsubsection.1.1.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.1.2.2}Kube-Proxy}{6}{subsubsection.1.1.2.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces Kubernetes proxyuspm}}{7}{figure.1.3}\protected@file@percent }
-\newlabel{fig:float}{{\M@TitleReference {1.3}{Kubernetes proxyuspm}}{7}{Kubernetes proxyuspm}{figure.1.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces Kubernetes proxyiptpm}}{7}{figure.1.4}\protected@file@percent }
-\newlabel{fig:float}{{\M@TitleReference {1.4}{Kubernetes proxyiptpm}}{7}{Kubernetes proxyiptpm}{figure.1.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces Kubernetes proxy v user space módu}}{7}{figure.1.3}\protected@file@percent }
+\newlabel{fig:usmp}{{\M@TitleReference {1.3}{Kubernetes proxy v user space módu}}{7}{Kubernetes proxy v user space módu}{figure.1.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces Kubernetes proxy fungující s iptables}}{7}{figure.1.4}\protected@file@percent }
+\newlabel{fig:iptpm}{{\M@TitleReference {1.4}{Kubernetes proxy fungující s iptables}}{7}{Kubernetes proxy fungující s iptables}{figure.1.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.2}Ansible}{7}{section.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}Komponenty}{8}{subsection.1.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.1.1}Control node}{8}{subsubsection.1.2.1.1}\protected@file@percent }
@@ -69,41 +69,54 @@
 \@writefile{lot}{\contentsline {table}{\numberline {1.1}{\ignorespaces Linuxové jmenné prostory}}{12}{table.1.1}\protected@file@percent }
 \newlabel{tab:Jmenne prostory}{{\M@TitleReference {1.1}{Linuxové jmenné prostory}}{12}{Linuxové jmenné prostory}{table.1.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.2.2}Kontrolní skupina}{12}{subsubsection.1.3.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.2.3}Docker daemon}{12}{subsubsection.1.3.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.2.3}Docker daemon}{13}{subsubsection.1.3.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.2.4}Docker klient}{13}{subsubsection.1.3.2.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.2.5}Docker registr}{13}{subsubsection.1.3.2.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.2.6}Obrazy}{13}{subsubsection.1.3.2.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.3.3}Systémová kontejnery}{13}{subsection.1.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.4}Proč použít Hashcat?}{13}{subsection.1.3.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1.8}{\ignorespaces Docker kontejnery}}{14}{figure.1.8}\protected@file@percent }
+\newlabel{fig:docker-list}{{\M@TitleReference {1.8}{Docker kontejnery}}{14}{Docker kontejnery}{figure.1.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.9}{\ignorespaces LXC systémové kontejnery}}{14}{figure.1.9}\protected@file@percent }
+\newlabel{fig:lxc-list}{{\M@TitleReference {1.9}{LXC systémové kontejnery}}{14}{LXC systémové kontejnery}{figure.1.9}{}}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
 \@writefile{toc}{\contentsline {chapter}{\chapternumberline {2}Hesla}{15}{chapter.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Hašovací funkce}{15}{section.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Vlastnosti hašovací funkce}{15}{subsection.2.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Naorzeninový paradox}{16}{subsection.2.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.3}Windows}{16}{subsection.2.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.4}Linux}{16}{subsection.2.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.5}MacOS}{16}{subsection.2.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Útoky na hesla}{16}{section.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Hrubou silou}{16}{subsection.2.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Pomocí masky}{16}{subsection.2.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Se slovníkem}{16}{subsection.2.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Entropie hesla}{16}{section.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Ochrana před různými útoky}{16}{section.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.0.1}Windows}{15}{subsection.2.0.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.0.1.1}Popis protokolu}{15}{subsubsection.2.0.1.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Hesla windows}}{16}{figure.2.1}\protected@file@percent }
+\newlabel{fig:windows}{{\M@TitleReference {2.1}{Hesla windows}}{16}{Hesla windows}{figure.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.0.2}Linux}{16}{subsection.2.0.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Hašovací funkce}}{16}{table.2.1}\protected@file@percent }
+\newlabel{tab:Hash funkce}{{\M@TitleReference {2.1}{Hašovací funkce}}{16}{Hašovací funkce}{table.2.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Hešovací funkce}{17}{section.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Hesla hešovací funkce}}{17}{figure.2.2}\protected@file@percent }
+\newlabel{fig:has}{{\M@TitleReference {2.2}{Hesla hešovací funkce}}{17}{Hesla hešovací funkce}{figure.2.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.0.1}MD5}{18}{subsubsection.2.1.0.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Hesla a hešovací funkce MD5}}{18}{figure.2.3}\protected@file@percent }
+\newlabel{fig:md5}{{\M@TitleReference {2.3}{Hesla a hešovací funkce MD5}}{18}{Hesla a hešovací funkce MD5}{figure.2.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.0.2}SHA1}{19}{subsubsection.2.1.0.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2.2}{\ignorespaces SHA-X vlastnosti}}{19}{table.2.2}\protected@file@percent }
+\newlabel{tab:SHA-X}{{\M@TitleReference {2.2}{SHA-X vlastnosti}}{19}{SHA-X vlastnosti}{table.2.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Útoky na hesla}{19}{section.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Hrubou silou}{19}{subsection.2.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Pomocí masky}{19}{subsection.2.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Se slovníkem}{19}{subsection.2.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Entropie hesla}{19}{section.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Ochrana před různými útoky}{19}{section.2.4}\protected@file@percent }
 \citation{merkel2014docker}
 \bibstyle{ieeetr}
 \bibdata{mybibliographyfile}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {3}Závěr}{17}{chapter.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {3}Závěr}{21}{chapter.3}\protected@file@percent }
 \bibcite{merkel2014docker}{1}
-\@writefile{toc}{\contentsline {chapter}{Literatura}{19}{chapter*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Literatura}{23}{chapter*.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {appendix}{\chapternumberline {A}Seznam použitých zkratek}{21}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {appendix}{\chapternumberline {A}Seznam použitých zkratek}{25}{appendix.A}\protected@file@percent }
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {appendix}{\chapternumberline {B}Obsah přiloženého CD}{23}{appendix.B}\protected@file@percent }
-\newlabel{tab:was:used:in:doc}{{\M@TitleReference {B}{Obsah přiloženého CD}}{23}{Obsah přiloženého CD}{appendix.B}{}}
-\memsetcounter{lastsheet}{39}
-\memsetcounter{lastpage}{23}
+\@writefile{toc}{\contentsline {appendix}{\chapternumberline {B}Obsah přiloženého CD}{27}{appendix.B}\protected@file@percent }
+\newlabel{tab:was:used:in:doc}{{\M@TitleReference {B}{Obsah přiloženého CD}}{27}{Obsah přiloženého CD}{appendix.B}{}}
+\memsetcounter{lastsheet}{43}
+\memsetcounter{lastpage}{27}

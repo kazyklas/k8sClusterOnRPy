@@ -12,7 +12,7 @@ Kontejnery jsou perfektní způsob, jak vytvářet aplikace tak, aby byly lehce 
 	\item \textbf{Orchestrace úložiště}: Dovolují automaticky připojovat vzdálené nebo lokální úložiště do klastru a zajistit tak konzistenci dat, zálohu a vysokou dostupnost z více míst.
   	\item \textbf{Automated rollouts and rollbacks}: Můžeme popsat požadovaný stav pro naše nasazené kontejnery pomocí Kubernetes a ty automaticky a s kontrolou zajistí tento stav. Můžeme například automatizovat vytváření nových kontejnerů, smazání starých a převzetí všech zdrojů jako jsou data a další novým kontejnerem.
 	\item \textbf{Automatic bin packing}: Předáme Kubernetes vztvořený klastr s uzly a specifikujeme zdroje, které každý kontejner potřebuje pro své správné fungování. Kubernetes se následně postará o nejlepší rozdělení kontejnerů na uzly tak, aby optimalizoval naše zdroje. To se může nejvíce hodit na cloudových řešení, kde se platí za to, kolik se využívá zdrojů. 
-   	\item{Self-healing}:	Kubernetes restartují kontejnery, které selžou, nahradí je, zahodí pokud přestanou odpovídat na specifikované health checky a přestane je nabízet klientům nebo jiným službám dokud nejsou připravené. 
+   	\item \textbf{Self-healing}:	Kubernetes restartují kontejnery, které selžou, nahradí je, zahodí pokud přestanou odpovídat na specifikované health checky a přestane je nabízet klientům nebo jiným službám dokud nejsou připravené. 
 	\item \textbf{Secret and configuration management}: Kubernetes napomáhají ukládání a sdílení či měnění citlivých informací zkrze klastr. Při změně těchto informací tedy nemusíme znovu vytvářet kontejnery a nově všechno předělat. A to bez jejich zveřejňování v konfiguracích. 
 
 \end{itemize}
@@ -23,20 +23,20 @@ V momentě kdy nasadíme Kubernetes, dostaneme klastr, který se skládá z výp
 
 Tyto výpočetní nody poskztují prostor pro pody. Pod si můžeme představit jako balík, ve kterém jsou umístěné kontejnery. V praxi je nejčastěji Control Plane rozdělen na více počítačů, aby se zajistila vysoká dostupnost a maximalizovala se odolnost proti chybám. 
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
- 	\includegraphics[width=0.8\textwidth, angle=0]{kubernetes-architecture.png}
- 	\caption[Komponenty Kubernetes]{Komponenty Kubernetes}\label{fig:float}
+ 	\includegraphics[width=0.95\textwidth, angle=0]{kubernetes-architecture.png}
+ 	\caption[Komponenty Kubernetes]{Komponenty Kubernetes}\label{fig:architecture}
 \end{figure}
 
 \subsubsection{Pod}
 % https://medium.com/@aykanferhat/running-our-first-container-on-kubernetes-80041d659633
 Pod je základní stavební jednotka Kubernetes. Je to balíček kontejnerů nebo též samostatný kontejner, který je specifikován v deploymentu a Kubernetes se o něj mají starat. Pro představu je zde obrázek, z čeho se pod skládá. Takových podů může být na jednom nodu několik. To jak se rozhodneme zabalit naši aplikaci do podů je čistě na tom, jak se rozhodneme. Abychom však neporušovali konvence tzv. service architektury. Musíme do jednoho podu dávat služby pouze takové, které dávají smysl. Pro příklad nebudeme do jednoho podu balit databázi s webovým UI. Při škálování by se totiž nejen že replikovala aplikace ale i databáz.  
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
  	\includegraphics[width=0.8\textwidth, angle=0]{kubernetes-pod.png}
- 	\caption[Kubernetes Pod]{Z čeho se skládá pod.}\label{fig:float}
+ 	\caption[Kubernetes Pod]{Z čeho se skládá pod.}\label{fig:pod}
 \end{figure}
 
 
@@ -85,16 +85,16 @@ Je agent zajišťující běh všech kontejnerů v daném podu. Kubelet převezm
 
 Je síťová proxy, která běží na každém nodu. Spravuje síťová pravidla. Zajišťuje tak komunikaci mezi jednotlivými pody a nody uvnitř klastru. Používá szstémovou vrstvu na filtrování paketů, pokud je dostupná, jinak forwarduje provoz za pomoci svých prostředků. Níže znázorněno na obrázcích.
 % https://kubernetes.io/docs/concepts/services-networking/service/
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
  	\includegraphics[width=0.8\textwidth, angle=0]{kubernetes-proxy.png}
- 	\caption[Kubernetes proxyuspm]{Kubernetes proxy - User space proxy mode}\label{fig:float}
+ 	\caption[Kubernetes proxy v user space módu]{Kubernetes proxy - User space proxy mode}\label{fig:usmp}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
  	\includegraphics[width=0.8\textwidth, angle=0]{kubernetes-proxyip.png}
- 	\caption[Kubernetes proxyiptpm]{Kubernetes proxy - iptables proxy mode}\label{fig:float}
+ 	\caption[Kubernetes proxy fungující s iptables]{Kubernetes proxy - iptables proxy mode}\label{fig:iptpm}
 \end{figure}
 
 
