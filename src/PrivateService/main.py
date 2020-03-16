@@ -10,6 +10,30 @@ import simplejson
 
 app = FastAPI()
 
+@app.put("delete-work/{hashID}")
+async def delete_work_for_hashID(hashID):
+    try:
+        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host="127.0.0.1", port="5432")
+        cursor = connection.cursor()
+        cursor.execute(
+            """
+            UPDATE hashes
+            SET solving = 'False'
+            WHERE hash = %s;    
+            """,
+            [hashID, ]
+        )
+        connection.commit()
+        return {
+            "Done"
+        }
+
+    except (Exception, psycopg2.Error) as error:
+        return {
+            "Could not connect to DB"
+        }
+
+
 
 """
 Worker will ask for work and will get the hash and the type that he should solve.
@@ -50,12 +74,12 @@ Worker will confirm if he can start on the fiven work in the previous get reques
 If the work is assigned to another worker in that time it will return False and 
 worker won't start working.
 """
-@app.put("/start-work/{hashid}")
-async def start_work_on_hash(hashid):
+@app.put("/start-work/{hashID}")
+async def start_work_on_hash(hashID):
     try:
         connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host="127.0.0.1", port="5432")
         cursor = connection.cursor()
-        cursor.execute("""SELECT solving FROM hashes WHERE hash = %s""", [hashid, ])
+        cursor.execute("""SELECT solving FROM hashes WHERE hash = %s""", [hashID, ])
         line = cursor.fetchone()
         print(line[0])
         # Work was probably given to another worker before
@@ -71,7 +95,7 @@ async def start_work_on_hash(hashid):
                 SET solving = 'True'
                 WHERE hash = %s;    
                 """,
-                [hashid, ]
+                [hashID, ]
             )
             connection.commit()
             return {
@@ -88,8 +112,8 @@ async def start_work_on_hash(hashid):
 After worker gets the work and he finishes it he will send put to update the DB.
 He will send the hash and the result for the given hash.
 """
-@app.put("/work-done/{hashid}/{result}")
-async def update_result_for_hash(hashid, result):
+@app.put("/work-done/{hashID}/{result}")
+async def update_result_for_hash(hashID, result):
     try:
         connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host="127.0.0.1", port="5432")
         # TODO add check to hash it by myself before insert
@@ -101,7 +125,7 @@ async def update_result_for_hash(hashid, result):
                 result = %s
             WHERE hash = %s;    
             """,
-            [result, hashid, ]
+            [result, hashID, ]
         )
         connection.commit()
         return {
@@ -121,6 +145,7 @@ Working with Consul:
     The DB should be update with one more collum with worker ID.
     Will have to check how to make the ID or how to identify them.
 """
+
 
 """
 On the root return just the info about this service.

@@ -1,5 +1,6 @@
 import requests
 import json
+import subprocess
 import time
 
 service = "http://127.0.0.1:8080/"
@@ -16,11 +17,19 @@ def request_work(hashID):
 # TODO Send result to the service
 def start_work(hashID, hashType):
     # TODO call hashcat and parse output
-
-    
-
-    res = "From hashcat"
-    return res
+    dictF = "dict.txt"
+    hashesF = "hashes.txt"
+    crackedF = "cracked.txt"
+    # append the hash to the hashes file
+    f = open(hashesF)
+    f.write(hashID)
+    f.close()
+    subprocess.run(["hashcat", "-m", "0", "-o", "cracked.txt", "hashes.txt", dictF])
+    solved = subprocess.check_output(['tail', '-1', crackedF])
+    if solved.decode().split(":", 1)[0] != hashID:
+        return False
+    else:
+        return solved.decode().split(":", 1)[1]
 
 
 def ask_for_work():
@@ -33,9 +42,15 @@ def ask_for_work():
     hashType = json.loads(work.text)['type']
     if request_work(hashID):
         result = start_work(hashID, hashType)
-        url = service + "work-done/" + hashID + "/" + result
-        requests.put(url)
-        return
+        if result:
+            url = service + "work-done/" + hashID + "/" + result
+            requests.put(url)
+            return
+        else:
+            # TODO add delete-work api to the private service
+            url = service + "delete-work/" + hashID
+            requests.put(url)
+            return
     else:
         return
 
