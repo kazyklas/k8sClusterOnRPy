@@ -31,11 +31,17 @@ async def find_work_for_worker():
             """
         )
         result = cursor.fetchone()
-        return simplejson.dumps(result)
+        print(result[0], result[1])
+        return {
+            "hash": result[0],
+            "type": result[1]
+        }
+
+        #return simplejson.dumps(result)
 
     except (Exception, psycopg2.Error) as error:
         return {
-            "Not such a result": "Failed"
+            "Fail" # No work have been found
         }
 
 
@@ -56,7 +62,7 @@ async def start_work_on_hash(hashid):
         # Worker will ask again after the False response on work.
         if line[0] != "False":
             return {
-                "False wrong fetch"
+                "False"
             }
         else:
             cursor.execute(
