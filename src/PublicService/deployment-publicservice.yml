@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: publicservice 
+spec:
+  selector:
+    matchLabels:
+      run: publicservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: publicservice 
+    spec:
+      containers:
+      - name: publicservice 
+        image: klastom1/publicservice
+        ports:
+        - containerPort: 8080
+

@@ -33,6 +33,9 @@ app = FastAPI()
 # wheel            0.34.2
 
 
+DB = "databaseservice"
+
+
 """
 Create_file is a function to get the file with hashes from user and update DB
 with data that are in the file.
@@ -44,7 +47,7 @@ async def create_file(files: UploadFile = File(...), hashtype: str = Form(...)):
         connection = psycopg2.connect(database="cracking",
                                       user="postgres",
                                       password="password1",
-                                      host="127.0.0.1",
+                                      host=DB,
                                       port="5432")
 
         cursor = connection.cursor()
