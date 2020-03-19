@@ -57,8 +57,9 @@ def ask_for_work():
 
 def main():
     while True:
-        #time.sleep(1)
+        print("Asking for work") 
         ask_for_work()
+        time.sleep(10)
         break
 
 

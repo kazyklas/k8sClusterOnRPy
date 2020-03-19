@@ -1,0 +1,69 @@
+# TODO
+#
+# Deploy some pods 
+# 
+# App name: password-recovery 
+#
+# pod 1: 
+#   publicservice -> klastom1/publicservice:v1publicservice
+#   expose port 8080
+#   name: publicservice
+#   restartpolicy: OnFailure
+#   livenessProbe:
+#       httpGet:
+#           path: /healthy
+#           port: 8080
+#       initialDelaySeconds: 5
+#       timeoutSeconds: 1
+#       periodSeconds: 10
+#       failureThreshold: 3
+#
+#   readinessProbe:
+#       httpGet:
+#           path: /ready
+#           port: 8080
+#       initialDelaySeconds: 30
+#       timeoutSeconds: 10
+#       periodSeconds: 10
+#       failureThreshold: 3
+#
+#
+# pod 2:
+#   privateservice -> klastom1/privateservice:v1privateservice
+#   - containerPort: 8081
+#   name: privateservice
+#   restartpolicy: OnFailure
+#   livenessProbe:
+#       httpGet:
+#           path: /healthy
+#           port: 8081
+#       initialDelaySeconds: 5
+#       timeoutSeconds: 1
+#       periodSeconds: 10
+#       failureThreshold: 3
+#   readinessProbe:
+#       httpGet:
+#           path: /ready
+#           port: 8081
+#       initialDelaySeconds: 30
+#       timeoutSeconds: 10
+#       periodSeconds: 10
+#       failureThreshold: 3
+#
+# pod 3:
+#   databaseservice -> klastom1/databaseservice:v1databaseservice
+#   name: databaseservice
+#   - containerPort: 5432
+#   hostPath: /opt/data
+#   ...
+#   volumeMounnts:
+#    - mountPath: /var/lib/postgresql/data
+#      name: "hash-data"
+#      
+#
+# pod 4: 
+#   name: hashcatwrapper
+#   hashcatwrapper -> klastom1/hashcatwrapper:v1hashcatwrapper
+#
+#
+# TODO Add liveness probe to the app's APIs with path /health and return 200 code

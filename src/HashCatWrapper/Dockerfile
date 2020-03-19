@@ -23,3 +23,13 @@ RUN git clone https://aur.archlinux.org/intel-opencl-runtime.git && \
     cd intel-opencl-runtime && \
     makepkg --noconfirm --syncdeps --rmdeps --install --clean
 
+
+RUN pip install requests 
+
+COPY main.py /opt/main.py
+
+COPY dict.txt /opt/dict.txt
+
+WORKDIR /opt
+
+CMD ["python", "main.py"]
