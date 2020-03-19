@@ -4,16 +4,19 @@
 # Date: 2020-03-05
 #####################################
 
-from fastapi import FastAPI
+from fastapi import FastAPI, status
 import psycopg2
 import simplejson
 
 app = FastAPI()
 
+DB = "databaseservice"
+
+
 @app.put("delete-work/{hashID}")
 async def delete_work_for_hashID(hashID):
     try:
-        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host="127.0.0.1", port="5432")
+        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host=DB, port="5432")
         cursor = connection.cursor()
         cursor.execute(
             """
@@ -34,7 +37,6 @@ async def delete_work_for_hashID(hashID):
         }
 
 
-
 """
 Worker will ask for work and will get the hash and the type that he should solve.
 Worker than will ask if he realy can take the wokr and will start solving.
@@ -42,7 +44,7 @@ Worker than will ask if he realy can take the wokr and will start solving.
 @app.get("/get-work/")
 async def find_work_for_worker():
     try:
-        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host="127.0.0.1", port="5432")
+        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host=DB, port="5432")
         cursor = connection.cursor()
         cursor.execute(
             """
@@ -77,9 +79,14 @@ worker won't start working.
 @app.put("/start-work/{hashID}")
 async def start_work_on_hash(hashID):
     try:
-        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host="127.0.0.1", port="5432")
+        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host=DB, port="5432")
         cursor = connection.cursor()
-        cursor.execute("""SELECT solving FROM hashes WHERE hash = %s""", [hashID, ])
+        cursor.execute(
+            """SELECT solving 
+            FROM hashes 
+            WHERE hash = %s""",
+            [hashID, ]
+        )
         line = cursor.fetchone()
         print(line[0])
         # Work was probably given to another worker before
@@ -115,7 +122,7 @@ He will send the hash and the result for the given hash.
 @app.put("/work-done/{hashID}/{result}")
 async def update_result_for_hash(hashID, result):
     try:
-        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host="127.0.0.1", port="5432")
+        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host=DB, port="5432")
         # TODO add check to hash it by myself before insert
         cursor = connection.cursor()
         cursor.execute(
@@ -138,13 +145,36 @@ async def update_result_for_hash(hashID, result):
         }
 
 
-# TODO
 """
+TODO
 Working with Consul:
     Consul will send posts about the dead workers and API will update the DB.
     The DB should be update with one more collum with worker ID.
     Will have to check how to make the ID or how to identify them.
 """
+
+
+"""
+Check if the service is ready aka if it is connected to db or it can be connected.
+And check if it is healthy by checking its api on /health.
+"""
+@app.get("/ready", status_code=200)
+async def check_health_for_k8s():
+    try:
+        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host=DB, port="5432")
+        return { "Health": "OK"}
+    except (Exception, psycopg2.Error) as error:
+        status_code = 400
+        return {
+            "Ready": "False"
+        }
+
+
+@app.get("/health", status_code=200)
+async def check_health_for_k8s():
+    return {
+        "Health": "OK"
+    }
 
 
 """

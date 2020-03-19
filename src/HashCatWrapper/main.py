@@ -3,9 +3,13 @@ import json
 import subprocess
 import time
 
-service = "http://127.0.0.1:8080/"
+service = "privateservice"
 
 # https://requests.readthedocs.io/en/master/user/quickstart/
+
+dictF = "dict.txt"
+hashesF = "hashes.txt"
+crackedF = "cracked.txt"
 
 
 def request_work(hashID):
@@ -14,17 +18,12 @@ def request_work(hashID):
     return False if approval == "Fail" else True
 
 
-# TODO Send result to the service
 def start_work(hashID, hashType):
-    # TODO call hashcat and parse output
-    dictF = "dict.txt"
-    hashesF = "hashes.txt"
-    crackedF = "cracked.txt"
-    # append the hash to the hashes file
+    # TODO case for hashtype
     f = open(hashesF)
     f.write(hashID)
     f.close()
-    subprocess.run(["hashcat", "-m", "0", "-o", "cracked.txt", "hashes.txt", dictF])
+    subprocess.run(["hashcat", "-m", "0", "-o", crackedF, hashesF, dictF])
     solved = subprocess.check_output(['tail', '-1', crackedF])
     if solved.decode().split(":", 1)[0] != hashID:
         return False

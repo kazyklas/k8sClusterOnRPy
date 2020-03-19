@@ -44,27 +44,21 @@ Also it will get the name of the hash for future cracking.
 @app.post("/files/")
 async def create_file(files: UploadFile = File(...), hashtype: str = Form(...)):
     try:
-        connection = psycopg2.connect(database="cracking",
-                                      user="postgres",
-                                      password="password1",
-                                      host=DB,
-                                      port="5432")
-
+        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host=DB, port="5432")
         cursor = connection.cursor()
-
         while True:
             line = files.file.readline().decode("UTF-8").rstrip()
-            #print(line)
             if line == '':
                 break
             else:
-                SQL_query = """
-                            INSERT INTO 
-                            hashes (hash, type, solving, result) 
-                            VALUES (%s, %s, %s, %s);
-                            """
-                data = (line, hashtype, 'False', 'NULL')
-                cursor.execute(SQL_query, data)
+                cursor.execute(
+                    """
+                    INSERT INTO 
+                    hashes (hash, type, solving, result) 
+                    VALUES (%s, %s, %s, %s);
+                    """,
+                    [line, hashtype, 'False', 'NULL', ]
+                )
 
         connection.commit()
         return {
@@ -85,17 +79,16 @@ Not solving which user added or another stuff like that.
 @app.get("/solved")
 async def print_database():
     try:
-        connection = psycopg2.connect(database="cracking",
-                                      user="postgres",
-                                      password="password1",
-                                      host="127.0.0.1",
-                                      port="5432")
-
-        SQL_query = "select * from hashes where solving = 'Done'"
+        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host=DB, port="5432")
         cursor = connection.cursor()
-        cursor.execute(SQL_query)
+        cursor.execute(
+            """
+            SELECT * 
+            FROM hashes
+            WHERE solving = 'Done' 
+            """
+        )
         records = cursor.fetchall()
-
         hashes = []
         for row in records:
             hash = {
@@ -120,12 +113,7 @@ For this result will try to find the hash in the DB.
 @app.get("/solved/result/{result}")
 async def print_hash_for_result(result):
     try:
-        connection = psycopg2.connect(database="cracking",
-                                      user="postgres",
-                                      password="password1",
-                                      host="127.0.0.1",
-                                      port="5432")
-
+        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host=DB, port="5432")
         cursor = connection.cursor()
         cursor.execute(
             """
@@ -156,12 +144,7 @@ Will return a JSON that contains the result, null if not solved.
 @app.get("/solved/hash/{hashid}")
 async def print_result_from_hash(hashid):
     try:
-        connection = psycopg2.connect(database="cracking",
-                                      user="postgres",
-                                      password="password1",
-                                      host="127.0.0.1",
-                                      port="5432")
-
+        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host=DB, port="5432")
         cursor = connection.cursor()
         cursor.execute(
             """
@@ -180,6 +163,29 @@ async def print_result_from_hash(hashid):
         return {
             "Not such a result": "Failed"
         }
+
+
+"""
+Check if the service is ready aka if it is connected to db or it can be connected.
+And check if it is healthy by checking its api on /health.
+"""
+@app.get("/ready", status_code=200)
+async def check_health_for_k8s():
+    try:
+        connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host=DB, port="5432")
+        return { "Health": "OK"}
+    except (Exception, psycopg2.Error) as error:
+        status_code = 400
+        return {
+            "Ready": "False"
+        }
+
+
+@app.get("/health", status_code=200)
+async def check_health_for_k8s():
+    return {
+        "Health": "OK"
+    }
 
 
 @app.get("/")
