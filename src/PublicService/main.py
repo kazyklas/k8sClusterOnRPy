@@ -5,7 +5,7 @@
 #####################################3
 
 import psycopg2
-from fastapi import FastAPI, Form, File, UploadFile
+from fastapi import FastAPI, Form, File, UploadFile, Response
 from fastapi.responses import HTMLResponse
 import simplejson
 
@@ -170,12 +170,12 @@ Check if the service is ready aka if it is connected to db or it can be connecte
 And check if it is healthy by checking its api on /health.
 """
 @app.get("/ready", status_code=200)
-async def check_health_for_k8s():
+async def check_health_for_k8s(response: Response):
     try:
         connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host=DB, port="5432")
         return { "Health": "OK"}
     except (Exception, psycopg2.Error) as error:
-        status_code = 400
+        response.status_code = 400
         return {
             "Ready": "False"
         }
