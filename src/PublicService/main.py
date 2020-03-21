@@ -7,7 +7,7 @@
 import psycopg2
 from fastapi import FastAPI, Form, File, UploadFile, Response
 from fastapi.responses import HTMLResponse
-import simplejson
+import simplejson, os
 
 # TODO Try to monetize this in the diploma thesis
 
@@ -33,19 +33,32 @@ app = FastAPI()
 # wheel            0.34.2
 
 
-DB = "databaseservice"
-
+DB = "127.0.0.1"
 
 """
 Create_file is a function to get the file with hashes from user and update DB
 with data that are in the file.
 Also it will get the name of the hash for future cracking.
 """
+
+
 @app.post("/files/")
 async def create_file(files: UploadFile = File(...), hashtype: str = Form(...)):
     try:
         connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host=DB, port="5432")
         cursor = connection.cursor()
+        # Check the file if it is a supported format
+        if os.path.splitext(files.filename)[1] != '.txt':
+            return {
+                "Database Fill": "Failed",
+                "Wrong file format": "Not .txt"
+            }
+        if hashtype != "md5" and hashtype != "sha1":
+             return {
+                 "Database Fill": "Failed",
+                 "Wrong hash type": "md5, sha1"
+             }
+
         while True:
             line = files.file.readline().decode("UTF-8").rstrip()
             if line == '':
@@ -76,8 +89,10 @@ This function will return the set of the hashes that are in the DB.
 It will show ale the data that are in the DB.
 Not solving which user added or another stuff like that.
 """
+
+
 @app.get("/solved")
-async def print_database():
+async def print_database(response: Response):
     try:
         connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host=DB, port="5432")
         cursor = connection.cursor()
@@ -100,6 +115,7 @@ async def print_database():
         return simplejson.dumps(hashes)
 
     except (Exception, psycopg2.Error) as error:
+        response.status_code = 500
         return {
             "Connect to DB": "Failed"
         }
@@ -110,6 +126,8 @@ async def print_database():
 This function will take an argument from the curl with result.
 For this result will try to find the hash in the DB.
 """
+
+
 @app.get("/solved/result/{result}")
 async def print_hash_for_result(result):
     try:
@@ -141,6 +159,8 @@ async def print_hash_for_result(result):
 Function will take an argument with hash and will try to find result.
 Will return a JSON that contains the result, null if not solved.
 """
+
+
 @app.get("/solved/hash/{hashid}")
 async def print_result_from_hash(hashid):
     try:
@@ -169,13 +189,15 @@ async def print_result_from_hash(hashid):
 Check if the service is ready aka if it is connected to db or it can be connected.
 And check if it is healthy by checking its api on /health.
 """
+
+
 @app.get("/ready", status_code=200)
 async def check_health_for_k8s(response: Response):
     try:
         connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host=DB, port="5432")
-        return { "Health": "OK"}
+        return {"Health": "OK"}
     except (Exception, psycopg2.Error) as error:
-        response.status_code = 400
+        response.status_code = 500
         return {
             "Ready": "False"
         }
@@ -191,12 +213,21 @@ async def check_health_for_k8s():
 @app.get("/")
 async def main():
     content = """
-<body>
-<form action="/files/" enctype="multipart/form-data" method="post">
-<input name="hashtype" type="text">
-<input name="files" type="file" multiple>
-<input type="submit">
-</form>
-</body>
+        <body>
+        <form action="/files/" enctype="multipart/form-data" method="post">
+        <input name="hashtype" type="text">
+        <input name="files" type="file" multiple>
+        <input type="submit">
+        </form>
+        </body>
     """
     return HTMLResponse(content=content)
+
+
+ # Check the line structure if it is the correct len for the given hash
+           # if (hashtype == "md5" and line.len() != 33) or (hashtype == "sha1" and line.len() != 41):
+           #     return {
+           #         "Database Fill": "Failed",
+           #         "Hash was corrupted": "len= 32(md5), 40(sha1)"
+           #     }
+
