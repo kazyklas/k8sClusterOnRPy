@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: publicservice 
+  name: public
 spec:
   selector:
     matchLabels:
-      run: publicservice
+      run: public 
   replicas: 1
   template:
     metadata:
       labels:
-        run: publicservice 
+        run: public 
     spec:
-      hostname: pubser
-      subdomain: password
+      hostname: public-pod
+      subdomain: publicservice
       containers:
-      - name: publicservice 
+      - name: public 
         image: klastom1/publicservice
         ports:
         - containerPort: 8080

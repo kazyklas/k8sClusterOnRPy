@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: password-recovery-privateservice
+  name: privateservice
   labels:
-    run: privateservice 
+    run: private 
 spec:
   ports:
-  - port: 8081
+  - name: private-pod
+    port: 8081
     protocol: TCP
   selector:
-    run: privateservice 
+    run: private

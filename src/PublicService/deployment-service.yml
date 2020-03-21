@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: password
+  name: publicservice
   labels:
-    run: publicservice 
+    run: public
 spec:
   ports:
-  - name: pubser
+  - name: public-pod
     port: 8080
     protocol: TCP
   selector:
-    run: publicservice
+    run: public
 

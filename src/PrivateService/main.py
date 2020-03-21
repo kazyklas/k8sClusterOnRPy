@@ -41,7 +41,7 @@ async def delete_work_for_hashID(hashID):
 Worker will ask for work and will get the hash and the type that he should solve.
 Worker than will ask if he realy can take the wokr and will start solving.
 """
-@app.get("/get-work/")
+@app.get("/get-work")
 async def find_work_for_worker():
     try:
         connection = psycopg2.connect(database="cracking", user="postgres", password="password1", host=DB, port="5432")

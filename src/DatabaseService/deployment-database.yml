@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: databaseservice
+  name: database
 spec:
   selector:
     matchLabels:
-      run: databaseservice
+      run: database
   replicas: 1
   template:
     metadata:
       labels:
-        run: databaseservice
+        run: database
     spec:
-      hostname: database
-      subdomain: password-database
+      hostname: database-pod
+      subdomain: databaseservice
       containers:
-      - name: databaseservice
-        image: klastom1/databaseservice
+      - name: database
+        image: klastom1/databaseservice:v1databaseservice
         ports:
         - containerPort: 5432
         volumeMounts:
