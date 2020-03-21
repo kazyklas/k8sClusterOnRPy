@@ -17,4 +17,17 @@ spec:
         image: klastom1/privateservice
         ports:
         - containerPort: 8081
-
+  livenessProbe:
+    httpGet:
+       path: /healthy
+       port: 8080
+    initialDelaySeconds: 5
+    timeoutSeconds: 1
+    periodSeconds: 10
+    failureThreshold: 3
+    readinessProbe:
+      httpGet:
+        path: /ready
+        port: 8080
+    initialDelaySeconds: 30
+    timeoutSeconds: 1
