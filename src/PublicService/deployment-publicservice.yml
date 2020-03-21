@@ -12,6 +12,8 @@ spec:
       labels:
         run: publicservice 
     spec:
+      hostname: pubser
+      subdomain: password
       containers:
       - name: publicservice 
         image: klastom1/publicservice
