@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: computation-unit
+spec:
+  selector:
+    matchLabels:
+      run: computation-unit
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: computation-unit
+    spec:
+      hostname: hashcat-pod
+      containers:
+      - name: hashcat
+        image: klastom1/hashcatwrapper:v1wrapper
