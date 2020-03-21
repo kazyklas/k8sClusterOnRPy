@@ -1,19 +1,21 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment 
 metadata:
-  name: privateservice
+  name: private 
 spec:
   selector:
     matchLabels:
-      run: privateservice
+      run: private
   replicas: 1
   template:
     metadata:
       labels:
-        run: privateservice 
+        run: private 
     spec:
+      hostname: private-pod
+      subdomain: privateservice
       containers:
-      - name: privateservice 
+      - name: private 
         image: klastom1/privateservice
         ports:
         - containerPort: 8081

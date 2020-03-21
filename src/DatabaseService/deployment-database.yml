@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database
+spec:
+  selector:
+    matchLabels:
+      run: database
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: database
+    spec:
+      hostname: database-pod
+      subdomain: databaseservice
+      containers:
+      - name: database
+        image: klastom1/databaseservice:v1databaseservice
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: volume
+      volumes:
+      - name: volume
+        hostPath:
+          path: /home/ubuntu/k8sClusterOnRPy/src/DatabaseService/data
+
+
